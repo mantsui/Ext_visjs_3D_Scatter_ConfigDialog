@@ -8,71 +8,12 @@
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
-
-	<script src="https://d3js.org/d3.v4.min.js"></script>
-
 </head>
 
 <body>
-<h4>Tableau Extension API Test - Debug</h4>
-
-<script>
-	'use strict';
-	// Wrap everything in an anonymous function to avoid polluting the global namespace
-	(function () {
-		$(document).ready(function () {
-		// Initialises Tableau Data Extension
-		console.log('Initilizing Tableau Data Extension');
-		tableau.extensions.initializeAsync().then(function () {
-			// Once we initialize, call draw D3 function.
-		 	//drawD3();
-		 	get_SummaryData();
-			
-
-		}, function () { console.log('Error while Initializing: ' + err.toString()); });
-		});
-
-		function get_SummaryData() {
-			// Gets all the worksheets in a Tableau Dashboard
-			const worksheets = tableau.extensions.dashboardContent.dashboard.worksheets;
-			// Finds a worksheet called worksheetData
-			var worksheet = worksheets.find(function (sheet) {
-				console.log('Worksheet: ');
-				console.log(sheet.name);
-				return sheet.name == "Sheet_ByRegion_Tab";
-			});
-			
-			// Call a function on the worksheet Object to get the Summary Data.
-			//worksheet.getSummaryDataAsync().then(function (sumdata) {
-				// We get our summary data:
-				//var worksheetData = sumdata;
-				//console.log(worksheetData);
-
-			//});
-
-			worksheet.getSummaryDataAsync().then(function (sumdata) {
-				// Create an empty arrays for our labels and data set.
-				var labels = [];
-				var data = [];
-				// We get our summary data:
-				var worksheetData = sumdata.data;
-				// We loop through our summary data and hardcode which columns goes into Label
-				// and which column goes into the array.
-				for (var i = 0; i < worksheetData.length; i++) {
-					labels.push(worksheetData[i][0].formattedValue);
-					data.push(worksheetData[i][1].value);
-				}
-				
-				console.log('labels');
-				console.log(labels);
-				console.log('data');
-				console.log(data);
-			})			
-		}
-
-		console.log('Test');
-	})();		
-</script>
+	<div class="jumbotron">
+		<h1>Hello, Configuration Dialog!!!</h1>
+	</div>
 </body>
 
 <!-- Extensions Library (this will be hosted on a CDN eventually) -->
