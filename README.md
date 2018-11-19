@@ -1,3 +1,3 @@
-# TestExt_Debug03
+# Ext_D3_SimpleBar01
 
-Simple Tableau Extension test for setting up configuration dialog
+Supporting configuration dialog for Tableau Extension to draw simple D3 bar chart.
