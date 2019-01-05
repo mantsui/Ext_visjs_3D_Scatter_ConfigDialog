@@ -75,6 +75,8 @@
 	      buildDialog();
 	    });
 	  });
+		
+	  var worksheetColumns = [];
 
 	  function buildDialog() {
 	    // This gets all the worksheets within a dashboard and populates a
@@ -112,7 +114,7 @@
 	    });
 	    // This now gets the summary data column names for our chosen data source.
 	    worksheet.getSummaryDataAsync({ maxRows: 1 }).then(function (sumdata) {
-	      var worksheetColumns = sumdata.columns;
+	      worksheetColumns = sumdata.columns;
 	      $("#selectCategory").text("");
 	      $("#selectValue").text("");
 	      var counter = 1;
@@ -146,6 +148,8 @@
 	    tableau.extensions.settings.set("worksheet", $("#selectWorksheet").val());
 	    tableau.extensions.settings.set("categoryColumnNumber", $("#selectCategory").val());
 	    tableau.extensions.settings.set("valueColumnNumber", $("#selectValue").val());
+
+	    console.log('Measure Name: ' + worksheetColumns[$("#selectValue").val()]);
 
 	    tableau.extensions.settings.saveAsync().then((currentSettings) => {
 	      tableau.extensions.ui.closeDialog("10");
