@@ -45,6 +45,7 @@
                 </select>
             </div>
         </div>
+
         <div class="row">
             <div class="col-md-6 col-xs-6">
                 <span class="dropdown-label">Select Category #1</span>
@@ -53,6 +54,31 @@
                 </select>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-6 col-xs-6">
+                <span class="dropdown-label">Select Category #2</span>
+                <select id="selectField_2" class="select">
+                    <option disabled selected="selected">-- None Selected --</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-xs-6">
+                <span class="dropdown-label">Select Category #3</span>
+                <select id="selectField_3" class="select">
+                    <option disabled selected="selected">-- None Selected --</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-xs-6">
+                <span class="dropdown-label">Select Category #4</span>
+                <select id="selectField_4" class="select">
+                    <option disabled selected="selected">-- None Selected --</option>
+                </select>
+            </div>
+        </div>
+	    
         <div class="row dialog-buttons">
             <span id="error"></span>
             <button id="save" class="btn btn-success">Save</button>
@@ -117,18 +143,29 @@
 	      worksheetColumns = sumdata.columns;
 	      $("#selectMeasure").text("");
 	      $("#selectField_1").text("");
+	      $("#selectField_2").text("");
+	      $("#selectField_3").text("");
+	      $("#selectField_4").text("");
+		    
 	      var counter = 1;
 	      // We loop through all the columns and populate the drop downs. 
 	      worksheetColumns.forEach(function (current_value) {
 		$("#selectMeasure").append("<option value='" + current_value.fieldName + "'>"+current_value.fieldName+"</option>");
 		$("#selectField_1").append("<option value='" + current_value.fieldName + "'>"+current_value.fieldName+"</option>");
+		$("#selectField_2").append("<option value='" + current_value.fieldName + "'>"+current_value.fieldName+"</option>");
+		$("#selectField_3").append("<option value='" + current_value.fieldName + "'>"+current_value.fieldName+"</option>");
+		$("#selectField_4").append("<option value='" + current_value.fieldName + "'>"+current_value.fieldName+"</option>");
+
 		counter++;
 	      });
 
 	      // We try to restore the drop down if a value exists within the settings.
 	      $("#selectMeasure").val(tableau.extensions.settings.get("MeasureName"));
 	      $("#selectField_1").val(tableau.extensions.settings.get("FieldName_1"));
-		    
+	      $("#selectField_2").val(tableau.extensions.settings.get("FieldName_2"));
+	      $("#selectField_3").val(tableau.extensions.settings.get("FieldName_3"));
+	      $("#selectField_4").val(tableau.extensions.settings.get("FieldName_4"));
+
 	      //console.log('("#selectValue").val()');
 	      //console.log($("#selectMeasure").val());
 
@@ -144,7 +181,10 @@
 	    tableau.extensions.settings.set("worksheet", $("#selectWorksheet").val());
 	    tableau.extensions.settings.set("MeasureName", $("#selectMeasure").val());
 	    tableau.extensions.settings.set("FieldName_1", $("#selectField_1").val());
-
+	    tableau.extensions.settings.set("FieldName_2", $("#selectField_2").val());
+	    tableau.extensions.settings.set("FieldName_3", $("#selectField_3").val());
+	    tableau.extensions.settings.set("FieldName_4", $("#selectField_4").val());
+		  
 	    tableau.extensions.settings.saveAsync().then((currentSettings) => {
 	      tableau.extensions.ui.closeDialog("10");
 	    });
