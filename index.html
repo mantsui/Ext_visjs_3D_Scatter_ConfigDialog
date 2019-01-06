@@ -120,8 +120,8 @@
 	      var counter = 1;
 	      // We loop through all the columns and populate the drop downs. 
 	      worksheetColumns.forEach(function (current_value) {
-		$("#selectCategory").append("<option value='" + counter + "'>"+current_value.fieldName+"</option>");
-		$("#selectValue").append("<option value='" + counter + "'>"+current_value.fieldName+"</option>");
+		$("#selectCategory").append("<option value='" + current_value.fieldName + "'>"+current_value.fieldName+"</option>");
+		$("#selectValue").append("<option value='" + current_value.fieldName + "'>"+current_value.fieldName+"</option>");
 		counter++;
 	      });
 
@@ -129,8 +129,6 @@
 	      $("#selectCategory").val(tableau.extensions.settings.get("categoryColumnNumber"));
 	      $("#selectValue").val(tableau.extensions.settings.get("valueColumnNumber"));
 		    
-	      console.log('("#selectValue").text()');
-	      console.log($("#selectValue").text());
 	      console.log('("#selectValue").val()');
 	      console.log($("#selectValue").val());
 	      console.log('----- Debug worksheetColumns -----');
