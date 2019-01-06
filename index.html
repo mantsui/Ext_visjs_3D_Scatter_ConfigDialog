@@ -127,7 +127,7 @@
 
 	      // We try to restore the drop down if a value exists within the settings.
 	      $("#selectCategory").val(tableau.extensions.settings.get("categoryColumnNumber"));
-	      $("#selectMeasure").val(tableau.extensions.settings.get("valueColumnNumber"));
+	      $("#selectMeasure").val(tableau.extensions.settings.get("MeasureName"));
 		    
 	      console.log('("#selectValue").val()');
 	      console.log($("#selectValue").val());
@@ -146,7 +146,7 @@
 	    // On clicking save, we save the following settings.
 	    tableau.extensions.settings.set("worksheet", $("#selectWorksheet").val());
 	    tableau.extensions.settings.set("categoryColumnNumber", $("#selectCategory").val());
-	    tableau.extensions.settings.set("valueColumnNumber", $("#selectValue").val());
+	    tableau.extensions.settings.set("MeasureName", $("#sselectMeasure").val());
 
 	    tableau.extensions.settings.saveAsync().then((currentSettings) => {
 	      tableau.extensions.ui.closeDialog("10");
