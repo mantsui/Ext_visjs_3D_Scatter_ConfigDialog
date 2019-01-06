@@ -47,8 +47,8 @@
         </div>
         <div class="row">
             <div class="col-md-6 col-xs-6">
-                <span class="dropdown-label">Select Category</span>
-                <select id="selectCategory" class="select">
+                <span class="dropdown-label">Select Category #1</span>
+                <select id="selectField_1" class="select">
                     <option disabled selected="selected">-- None Selected --</option>
                 </select>
             </div>
@@ -115,19 +115,19 @@
 	    // This now gets the summary data column names for our chosen data source.
 	    worksheet.getSummaryDataAsync({ maxRows: 1 }).then(function (sumdata) {
 	      worksheetColumns = sumdata.columns;
-	      $("#selectCategory").text("");
 	      $("#selectMeasure").text("");
+	      $("#selectField_1").text("");
 	      var counter = 1;
 	      // We loop through all the columns and populate the drop downs. 
 	      worksheetColumns.forEach(function (current_value) {
-		$("#selectCategory").append("<option value='" + current_value.fieldName + "'>"+current_value.fieldName+"</option>");
 		$("#selectMeasure").append("<option value='" + current_value.fieldName + "'>"+current_value.fieldName+"</option>");
+		$("#selectField_1").append("<option value='" + current_value.fieldName + "'>"+current_value.fieldName+"</option>");
 		counter++;
 	      });
 
 	      // We try to restore the drop down if a value exists within the settings.
-	      $("#selectCategory").val(tableau.extensions.settings.get("categoryColumnNumber"));
 	      $("#selectMeasure").val(tableau.extensions.settings.get("MeasureName"));
+	      $("#selectField_1").val(tableau.extensions.settings.get("FieldName_1"));
 		    
 	      //console.log('("#selectValue").val()');
 	      //console.log($("#selectMeasure").val());
@@ -142,8 +142,8 @@
 	  function saveButton() {
 	    // On clicking save, we save the following settings.
 	    tableau.extensions.settings.set("worksheet", $("#selectWorksheet").val());
-	    tableau.extensions.settings.set("categoryColumnNumber", $("#selectCategory").val());
-	    tableau.extensions.settings.set("MeasureName", $("#sselectMeasure").val());
+	    tableau.extensions.settings.set("MeasureName", $("#selectMeasure").val());
+	    tableau.extensions.settings.set("FieldName_1", $("#selectField_1").val());
 
 	    tableau.extensions.settings.saveAsync().then((currentSettings) => {
 	      tableau.extensions.ui.closeDialog("10");
