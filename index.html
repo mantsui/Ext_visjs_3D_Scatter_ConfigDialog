@@ -185,15 +185,13 @@
 	    tableau.extensions.settings.set("FieldName_3", $("#selectField_3").val());
 	    tableau.extensions.settings.set("FieldName_4", $("#selectField_4").val());
 		  
-	    var zTestArray = ['str01','str02','str03','str04','str05','str06'];
-	    tableau.extensions.settings.set("TestExtArray", zTestArray);
-		  
-	    window.alert( "worksheet setting value: " + $("#selectWorksheet").val() + "\n" 
+	    // Debug
+	    /*window.alert( "worksheet setting value: " + $("#selectWorksheet").val() + "\n" 
 			 + "MeasureName: " + $("#selectMeasure").val() + "\n"
 			 + "FieldName_1: " + $("#selectField_1").val() + "\n"
 			 + "FieldName_2: " + $("#selectField_2").val() + "\n"
 			 + "FieldName_3: " + $("#selectField_3").val() + "\n"
-			 + "FieldName_4: " + $("#selectField_4").val() + "\n");
+			 + "FieldName_4: " + $("#selectField_4").val() + "\n");*/
 		  
 	    tableau.extensions.settings.saveAsync().then((currentSettings) => {
 	      tableau.extensions.ui.closeDialog("10");
