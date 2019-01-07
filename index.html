@@ -184,6 +184,7 @@
 	    tableau.extensions.settings.set("FieldName_2", $("#selectField_2").val());
 	    tableau.extensions.settings.set("FieldName_3", $("#selectField_3").val());
 	    tableau.extensions.settings.set("FieldName_4", $("#selectField_4").val());
+	    window.alert( "worksheet setting value: " + $("#selectWorksheet").val() );
 		  
 	    tableau.extensions.settings.saveAsync().then((currentSettings) => {
 	      tableau.extensions.ui.closeDialog("10");
