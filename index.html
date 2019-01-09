@@ -128,7 +128,6 @@
 	    });
 	    $('#cancel').click(closeDialog);
 	    $('#save').click(saveButton);
-	    $('.select').select2();
 	  }
 
 	  function columnsUpdate() {
@@ -214,10 +213,10 @@
 
 		for (var index = 0; index < 5; index++){
 			
-			RowID = 'RowID_' + index;
-			SecondDivID = 'SecondDivID_' + index;
-			ListID = 'Dropdown_' + index;
-			SelectID = 'selectField_' + index;
+			var RowID = 'RowID_' + index;
+			var SecondDivID = 'SecondDivID_' + index;
+			var ListID = 'Dropdown_' + index;
+			var SelectID = 'selectField_' + index;
 
 			//addElement(parentId, elementTag, elementClass, elementId, html)
 			addElement('configContainer','div','row',RowID,'');
