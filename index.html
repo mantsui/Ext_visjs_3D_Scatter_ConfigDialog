@@ -139,8 +139,12 @@
 	    });
 	    // This now gets the summary data column names for our chosen data source.
 	    worksheet.getSummaryDataAsync({ maxRows: 1 }).then(function (sumdata) {
-	      worksheetColumns = sumdata.columns;
-		    
+	      //worksheetColumns = sumdata.columns;
+
+	      sumdata.columns.forEach(function (current_value) {
+		worksheetColumns.push(current_value.fieldName);
+	      });
+
 	      create_Dropdown_Lists(worksheetColumns);    
 	      //$("#selectMeasure").text("");
 	      //$("#selectField_1").text("");
