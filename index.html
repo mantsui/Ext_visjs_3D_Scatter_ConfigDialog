@@ -37,7 +37,7 @@
                 </select>
             </div>
         </div>
-        <div class="row">
+        <!--div class="row">
             <div class="col-md-6 col-xs-6">
                 <span class="dropdown-label">Select Measure</span>
                 <select id="selectMeasure" class="select">
@@ -77,7 +77,7 @@
                     <option disabled selected="selected">-- None Selected --</option>
                 </select>
             </div>
-        </div>
+        </div-->
 	    
         <div class="row dialog-buttons">
             <span id="error"></span>
@@ -141,23 +141,25 @@
 	    // This now gets the summary data column names for our chosen data source.
 	    worksheet.getSummaryDataAsync({ maxRows: 1 }).then(function (sumdata) {
 	      worksheetColumns = sumdata.columns;
-	      $("#selectMeasure").text("");
-	      $("#selectField_1").text("");
-	      $("#selectField_2").text("");
-	      $("#selectField_3").text("");
-	      $("#selectField_4").text("");
 		    
-	      var counter = 1;
+	      create_Dropdown_Lists(worksheetColumns);    
+	      //$("#selectMeasure").text("");
+	      //$("#selectField_1").text("");
+	      //$("#selectField_2").text("");
+	      //$("#selectField_3").text("");
+	      //$("#selectField_4").text("");
+		    
+	      //var counter = 1;
 	      // We loop through all the columns and populate the drop downs. 
-	      worksheetColumns.forEach(function (current_value) {
-		$("#selectMeasure").append("<option value='" + current_value.fieldName + "'>"+current_value.fieldName+"</option>");
-		$("#selectField_1").append("<option value='" + current_value.fieldName + "'>"+current_value.fieldName+"</option>");
-		$("#selectField_2").append("<option value='" + current_value.fieldName + "'>"+current_value.fieldName+"</option>");
-		$("#selectField_3").append("<option value='" + current_value.fieldName + "'>"+current_value.fieldName+"</option>");
-		$("#selectField_4").append("<option value='" + current_value.fieldName + "'>"+current_value.fieldName+"</option>");
+	      //worksheetColumns.forEach(function (current_value) {
+		//$("#selectMeasure").append("<option value='" + current_value.fieldName + "'>"+current_value.fieldName+"</option>");
+		//$("#selectField_1").append("<option value='" + current_value.fieldName + "'>"+current_value.fieldName+"</option>");
+		//$("#selectField_2").append("<option value='" + current_value.fieldName + "'>"+current_value.fieldName+"</option>");
+		//$("#selectField_3").append("<option value='" + current_value.fieldName + "'>"+current_value.fieldName+"</option>");
+		//$("#selectField_4").append("<option value='" + current_value.fieldName + "'>"+current_value.fieldName+"</option>");
 
-		counter++;
-	      });
+		//counter++;
+	      //});
 
 	      // We try to restore the drop down if a value exists within the settings.
 	      $("#selectMeasure").val(tableau.extensions.settings.get("MeasureName"));
@@ -197,6 +199,67 @@
 	      tableau.extensions.ui.closeDialog("10");
 	    });
 	  }
+
+	  function addElement(parentId, elementTag, elementClass, elementId, html) {
+		// Adds an element to the document
+		var p = document.getElementById(parentId);
+		var newElement = document.createElement(elementTag);
+		newElement.setAttribute('id', elementId);
+		newElement.className = elementClass;
+		newElement.innerHTML = html;
+		p.appendChild(newElement);
+	  }
+
+	  function create_Dropdown_Lists(arrayFieldList){
+
+		for (var index = 0; index < 5; index++){
+			
+			RowID = 'RowID_' + index;
+			SecondDivID = 'SecondDivID_' + index;
+			ListID = 'Dropdown_' + index;
+			SelectID = 'selectField_' + index;
+
+			//addElement(parentId, elementTag, elementClass, elementId, html)
+			addElement('configContainer','div','row',RowID,'');
+			addElement(RowID,'div','col-md-6 col-xs-6',SecondDivID,'');
+			
+			if (index == 0) {
+				//  block of code to be executed if the condition is true
+				addElement(SecondDivID,'span','dropdown-label',ListID,'Select Measure');
+				addElement(ListID,'select','select','selectMeasure','');
+				$('#selectMeasure').append('<option disabled selected="selected">-- None Selected --</option>');
+
+				arrayFieldList.forEach(function(currentValue){
+					//console.log('Looping: ' + currentValue);
+					$('#selectMeasure').append("<option value='" + currentValue + "'>" + currentValue + "</option>");
+				});
+
+			} else { 
+				addElement(SecondDivID,'span','dropdown-label',ListID,'Select Category # ' + index);
+				addElement(ListID,'select','select',SelectID,'');
+				$('#' + SelectID).append('<option disabled selected="selected">-- None Selected --</option>');
+
+				arrayFieldList.forEach(function(currentValue){
+					//console.log('Looping: ' + currentValue);
+					$('#' + SelectID).append("<option value='" + currentValue + "'>" + currentValue + "</option>");
+				});
+
+			}			
+
+
+			//setupDropdown(ListID,'select',SelectID,'','');
+			//$('#' + SelectID).append('<option disabled selected="selected">-- None Selected --</option>');
+
+			//arrayFieldList.forEach(function(currentValue){
+				//console.log('Looping: ' + currentValue);
+			//	$('#' + SelectID).append("<option value='" + currentValue + "'>" + currentValue + "</option>");
+			//});
+
+
+		}		
+	  }
+
+
 	})();
 </script>
 
