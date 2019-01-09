@@ -111,18 +111,6 @@
 	      //$("#selectField_2").text("");
 	      //$("#selectField_3").text("");
 	      //$("#selectField_4").text("");
-		    
-	      //var counter = 1;
-	      // We loop through all the columns and populate the drop downs. 
-	      //worksheetColumns.forEach(function (current_value) {
-		//$("#selectMeasure").append("<option value='" + current_value.fieldName + "'>"+current_value.fieldName+"</option>");
-		//$("#selectField_1").append("<option value='" + current_value.fieldName + "'>"+current_value.fieldName+"</option>");
-		//$("#selectField_2").append("<option value='" + current_value.fieldName + "'>"+current_value.fieldName+"</option>");
-		//$("#selectField_3").append("<option value='" + current_value.fieldName + "'>"+current_value.fieldName+"</option>");
-		//$("#selectField_4").append("<option value='" + current_value.fieldName + "'>"+current_value.fieldName+"</option>");
-
-		//counter++;
-	      //});
 
 	      // We try to restore the drop down if a value exists within the settings.
 	      $("#selectMeasure").val(tableau.extensions.settings.get("MeasureName"));
@@ -186,8 +174,10 @@
 			addElement('configContainer','div','row',RowID,'');
 			addElement(RowID,'div','col-md-6 col-xs-6',SecondDivID,'');
 			
+			// Loop through all the columns and populate the drop downs.
 			if (index == 0) {
-				//  block of code to be executed if the condition is true
+				$("#selectMeasure").text("");// Reset html tag and delete previous configuration.
+
 				addElement(SecondDivID,'span','dropdown-label',ListID,'Select Measure');
 				addElement(ListID,'select','select','selectMeasure','');
 				$('#selectMeasure').append('<option disabled selected="selected">-- None Selected --</option>');
@@ -198,6 +188,8 @@
 				});
 
 			} else { 
+				$("#" + SelectID).text("");// Reset html tag and delete previous configuration.
+				
 				addElement(SecondDivID,'span','dropdown-label',ListID,'Select Category # ' + index);
 				addElement(ListID,'select','select',SelectID,'');
 				$('#' + SelectID).append('<option disabled selected="selected">-- None Selected --</option>');
