@@ -37,54 +37,14 @@
                 </select>
             </div>
         </div>
-        <!--div class="row">
-            <div class="col-md-6 col-xs-6">
-                <span class="dropdown-label">Select Measure</span>
-                <select id="selectMeasure" class="select">
-                    <option disabled selected="selected">-- None Selected --</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6 col-xs-6">
-                <span class="dropdown-label">Select Category #1</span>
-                <select id="selectField_1" class="select">
-                    <option disabled selected="selected">-- None Selected --</option>
-                </select>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 col-xs-6">
-                <span class="dropdown-label">Select Category #2</span>
-                <select id="selectField_2" class="select">
-                    <option disabled selected="selected">-- None Selected --</option>
-                </select>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 col-xs-6">
-                <span class="dropdown-label">Select Category #3</span>
-                <select id="selectField_3" class="select">
-                    <option disabled selected="selected">-- None Selected --</option>
-                </select>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 col-xs-6">
-                <span class="dropdown-label">Select Category #4</span>
-                <select id="selectField_4" class="select">
-                    <option disabled selected="selected">-- None Selected --</option>
-                </select>
-            </div>
-        </div-->
-	    
-        <div class="row dialog-buttons">
-            <span id="error"></span>
-            <button id="save" class="btn btn-success">Save</button>
-            <button id="cancel" class="btn btn-danger">Cancel</button>
-        </div>
     </div>
+
+    <div class="row dialog-buttons">
+        <span id="error"></span>
+        <button id="save" class="btn btn-success">Save</button>
+        <button id="cancel" class="btn btn-danger">Cancel</button>
+    </div>
+
 </body>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -139,8 +99,8 @@
 	    });
 	    // This now gets the summary data column names for our chosen data source.
 	    worksheet.getSummaryDataAsync({ maxRows: 1 }).then(function (sumdata) {
-	      //worksheetColumns = sumdata.columns;
 
+	      worksheetColumns = [] // Reset the array of field names
 	      sumdata.columns.forEach(function (current_value) {
 		worksheetColumns.push(current_value.fieldName);
 	      });
@@ -215,7 +175,7 @@
 
 	  function create_Dropdown_Lists(arrayFieldList){
 
-		for (var index = 0; index < 5; index++){
+		for (var index = 0; index < arrayFieldList.length; index++){
 			
 			var RowID = 'RowID_' + index;
 			var SecondDivID = 'SecondDivID_' + index;
