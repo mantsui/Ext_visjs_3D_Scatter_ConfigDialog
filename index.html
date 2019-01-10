@@ -99,8 +99,8 @@
 	    });
 	    // This now gets the summary data column names for our chosen data source.
 	    worksheet.getSummaryDataAsync({ maxRows: 1 }).then(function (sumdata) {
-
-	      worksheetColumns = [] // Reset the array of field names
+	      clear_Prior_Dropdown_Lists(worksheetColumns); 	// Clear prior dropdowns
+	      worksheetColumns = [];				// Reset the array of field names
 	      sumdata.columns.forEach(function (current_value) {
 		worksheetColumns.push(current_value.fieldName);
 	      });
@@ -176,8 +176,6 @@
 			
 			// Loop through all the columns and populate the drop downs.
 			if (index == 0) {
-				$("#selectMeasure").text("");// Reset html tag and delete previous configuration.
-
 				addElement(SecondDivID,'span','dropdown-label',ListID,'Select Measure');
 				addElement(ListID,'select','select','selectMeasure','');
 				$('#selectMeasure').append('<option disabled selected="selected">-- None Selected --</option>');
@@ -188,8 +186,6 @@
 				});
 
 			} else { 
-				$("#" + SelectID).text("");// Reset html tag and delete previous configuration.
-				
 				addElement(SecondDivID,'span','dropdown-label',ListID,'Select Category # ' + index);
 				addElement(ListID,'select','select',SelectID,'');
 				$('#' + SelectID).append('<option disabled selected="selected">-- None Selected --</option>');
@@ -214,6 +210,16 @@
 		}		
 	  }
 
+	  function clear_Prior_Dropdown_Lists(arrayFieldList){
+		for (var index = 0; index < arrayFieldList.length; index++){
+			var SelectID = 'selectField_' + index;
+			if (index == 0) {
+				$("#selectMeasure").text("");	// Reset html tag and delete previous configuration.
+			} else { 
+				$("#" + SelectID).text("");	// Reset html tag and delete previous configuration.
+			}
+		}		
+	  }
 
 	})();
 </script>
