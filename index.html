@@ -201,17 +201,28 @@
 
 	  function clear_Prior_Dropdown_Lists(arrayFieldList){
 		for (var index = 0; index < arrayFieldList.length; index++){
+			var RowID = 'RowID_' + index;
+			var SecondDivID = 'SecondDivID_' + index;
+			var ListID = 'Dropdown_' + index;
 			var SelectID = 'selectField_' + index;
+			
 			if (index == 0) {
-				$("#selectMeasure").text("");	// Reset html tag and delete previous configuration.
-				var element = document.getElementById('selectMeasure');
-				element.parentNode.removeChild(element);
+				$("#selectMeasure").text("");	// Reset html tag
+				removeElement('selectMeasure');	// Delete previous configuration.
 			} else { 
 				$("#" + SelectID).text("");	// Reset html tag and delete previous configuration.
-				var element = document.getElementById(SelectID);
-				element.parentNode.removeChild(element);
+				removeElement(SelectID);	// Delete previous configuration.
 			}
+			removeElement(ListID);
+			removeElement(SecondDivID);
+			removeElement(RowID);
 		}		
+	  }
+		
+	  function removeElement(elementId) {
+		// Removes an element from the document
+		var element = document.getElementById(elementId);
+		element.parentNode.removeChild(element);
 	  }
 
 	})();
