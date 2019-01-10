@@ -196,17 +196,6 @@
 				});
 
 			}			
-
-
-			//setupDropdown(ListID,'select',SelectID,'','');
-			//$('#' + SelectID).append('<option disabled selected="selected">-- None Selected --</option>');
-
-			//arrayFieldList.forEach(function(currentValue){
-				//console.log('Looping: ' + currentValue);
-			//	$('#' + SelectID).append("<option value='" + currentValue + "'>" + currentValue + "</option>");
-			//});
-
-
 		}		
 	  }
 
@@ -215,8 +204,12 @@
 			var SelectID = 'selectField_' + index;
 			if (index == 0) {
 				$("#selectMeasure").text("");	// Reset html tag and delete previous configuration.
+				var element = document.getElementById('selectMeasure');
+				element.parentNode.removeChild(element);
 			} else { 
 				$("#" + SelectID).text("");	// Reset html tag and delete previous configuration.
+				var element = document.getElementById(SelectID);
+				element.parentNode.removeChild(element);
 			}
 		}		
 	  }
