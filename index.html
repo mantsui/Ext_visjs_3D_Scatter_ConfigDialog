@@ -125,7 +125,7 @@
 	    tableau.extensions.ui.closeDialog("10");
 	  }
 
-	  function saveButton() {
+	  /*function saveButton() {
 	    // On clicking save, we save the following settings.
 	    tableau.extensions.settings.set("worksheet", $("#selectWorksheet").val());
 	    tableau.extensions.settings.set("MeasureName", $("#selectMeasure").val());
@@ -137,13 +137,13 @@
 	    tableau.extensions.settings.saveAsync().then((currentSettings) => {
 	      tableau.extensions.ui.closeDialog("10");
 	    });
-	  }
+	  }*/
 
-	  /*function saveButton(arrayFieldList) {
+	  function saveButton() {
 	    // On clicking save, we save the following settings.
 	    tableau.extensions.settings.set("worksheet", $("#selectWorksheet").val());
 
-	    for (var index = 0; index < arrayFieldList.length; index++){
+	    for (var index = 0; index < worksheetColumns.length; index++){
 		var SelectID = 'selectField_' + index;
 		var FieldID = 'FieldName_' + index;
 
@@ -161,10 +161,10 @@
 			 + "FieldName_3: " + $("#selectField_3").val() + "\n"
 			 + "FieldName_4: " + $("#selectField_4").val() + "\n");*/
 		  
-	    /*tableau.extensions.settings.saveAsync().then((currentSettings) => {
+	    tableau.extensions.settings.saveAsync().then((currentSettings) => {
 	      tableau.extensions.ui.closeDialog("10");
 	    });
-	  }*/
+	  }
 
 	  function addElement(parentId, elementTag, elementClass, elementId, html) {
 		// Adds an element to the document
