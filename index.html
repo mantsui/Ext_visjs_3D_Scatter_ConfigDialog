@@ -220,13 +220,16 @@
 			var SecondDivID = 'SecondDivID_' + index;
 			var ListID = 'Dropdown_' + index;
 			var SelectID = 'selectField_' + index;
+			var FieldIndex = 'FieldName_' + index;
 			
 			if (index == 0) {
 				$("#selectMeasure").text("");	// Reset html tag
 				removeElement('selectMeasure');	// Delete previous configuration.
+				tableau.extensions.settings.erase("MeasureName")// Delete Tableau extension key-pair settings
 			} else { 
 				$("#" + SelectID).text("");	// Reset html tag and delete previous configuration.
 				removeElement(SelectID);	// Delete previous configuration.
+				tableau.extensions.settings.erase(FieldIndex)	// Delete Tableau extension key-pair settings
 			}
 			removeElement(ListID);
 			removeElement(SecondDivID);
