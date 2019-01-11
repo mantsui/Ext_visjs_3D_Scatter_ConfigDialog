@@ -88,6 +88,7 @@
 	    });
 	    $('#cancel').click(closeDialog);
 	    $('#save').click(saveButton);
+	    $('#save').click(saveButton(worksheetColumns));
 	  }
 
 	  function columnsUpdate() {
@@ -105,12 +106,7 @@
 		worksheetColumns.push(current_value.fieldName);
 	      });
 
-	      create_Dropdown_Lists(worksheetColumns);    
-	      //$("#selectMeasure").text("");
-	      //$("#selectField_1").text("");
-	      //$("#selectField_2").text("");
-	      //$("#selectField_3").text("");
-	      //$("#selectField_4").text("");
+	      create_Dropdown_Lists(worksheetColumns);
 
 	      // We try to restore the drop down if a value exists within the settings.
 	      $("#selectMeasure").val(tableau.extensions.settings.get("MeasureName"));
@@ -129,15 +125,25 @@
 	    tableau.extensions.ui.closeDialog("10");
 	  }
 
-	  function saveButton() {
+	  function saveButton(arrayFieldList) {
 	    // On clicking save, we save the following settings.
 	    tableau.extensions.settings.set("worksheet", $("#selectWorksheet").val());
-	    tableau.extensions.settings.set("MeasureName", $("#selectMeasure").val());
-	    tableau.extensions.settings.set("FieldName_1", $("#selectField_1").val());
-	    tableau.extensions.settings.set("FieldName_2", $("#selectField_2").val());
-	    tableau.extensions.settings.set("FieldName_3", $("#selectField_3").val());
-	    tableau.extensions.settings.set("FieldName_4", $("#selectField_4").val());
-		  
+
+	    for (var index = 0; index < arrayFieldList.length; index++){
+		var SelectID = 'selectField_' + index;
+		var FieldID = 'FieldName_' + index;
+
+		if (index == 0) {
+			tableau.extensions.settings.set("MeasureName", $("#selectMeasure").val());
+		} else {
+			tableau.extensions.settings.set(FieldID, $(SelectID).val());
+		}
+	    
+	    //tableau.extensions.settings.set("FieldName_2", $("#selectField_2").val());
+	    //tableau.extensions.settings.set("FieldName_3", $("#selectField_3").val());
+	    //tableau.extensions.settings.set("FieldName_4", $("#selectField_4").val());
+		    
+	    }  
 	    // Debug
 	    /*window.alert( "worksheet setting value: " + $("#selectWorksheet").val() + "\n" 
 			 + "MeasureName: " + $("#selectMeasure").val() + "\n"
@@ -185,7 +191,7 @@
 					$('#selectMeasure').append("<option value='" + currentValue + "'>" + currentValue + "</option>");
 				});
 
-			} else { 
+			} else {
 				addElement(SecondDivID,'span','dropdown-label',ListID,'Select Category # ' + index);
 				addElement(ListID,'select','select',SelectID,'');
 				$('#' + SelectID).append('<option disabled selected="selected">-- None Selected --</option>');
