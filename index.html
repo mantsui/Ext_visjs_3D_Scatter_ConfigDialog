@@ -135,20 +135,6 @@
 	    tableau.extensions.ui.closeDialog("10");
 	  }
 
-	  /*function saveButton() {
-	    // On clicking save, we save the following settings.
-	    tableau.extensions.settings.set("worksheet", $("#selectWorksheet").val());
-	    tableau.extensions.settings.set("MeasureName", $("#selectMeasure").val());
-	    tableau.extensions.settings.set("FieldName_1", $("#selectField_1").val());
-	    tableau.extensions.settings.set("FieldName_2", $("#selectField_2").val());
-	    tableau.extensions.settings.set("FieldName_3", $("#selectField_3").val());
-	    tableau.extensions.settings.set("FieldName_4", $("#selectField_4").val());
-		    		  
-	    tableau.extensions.settings.saveAsync().then((currentSettings) => {
-	      tableau.extensions.ui.closeDialog("10");
-	    });
-	  }*/
-
 	  function saveButton() {
 	    // On clicking save, we save the following settings.
 	    tableau.extensions.settings.set("worksheet", $("#selectWorksheet").val());
@@ -222,6 +208,10 @@
 
 			}			
 		}		
+	  }
+
+	  function create_Color_Dropdown(){
+		var arrColorScale =[];
 	  }
 
 	  function clear_Prior_Dropdown_Lists(arrayFieldList){
