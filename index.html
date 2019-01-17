@@ -120,11 +120,12 @@
 	      create_Color_Dropdown();
 
 	      // We try to restore the drop down if a value exists within the settings.
-	      $("#selectMeasure").val(tableau.extensions.settings.get("MeasureName"));
-	      $("#selectField_1").val(tableau.extensions.settings.get("FieldName_1"));
-	      $("#selectField_2").val(tableau.extensions.settings.get("FieldName_2"));
-	      $("#selectField_3").val(tableau.extensions.settings.get("FieldName_3"));
-	      $("#selectField_4").val(tableau.extensions.settings.get("FieldName_4"));
+	      RestoreExtSettings(worksheetColumns);
+	      //$("#selectMeasure").val(tableau.extensions.settings.get("MeasureName"));
+	      //$("#selectField_1").val(tableau.extensions.settings.get("FieldName_1"));
+	      //$("#selectField_2").val(tableau.extensions.settings.get("FieldName_2"));
+	      //$("#selectField_3").val(tableau.extensions.settings.get("FieldName_3"));
+	      //$("#selectField_4").val(tableau.extensions.settings.get("FieldName_4"));
 
 	      //console.log('("#selectValue").val()');
 	      //console.log($("#selectMeasure").val());
@@ -209,6 +210,14 @@
 
 			}			
 		}		
+	  }
+	  function RestoreExtSettings(arrayFieldList){
+		  $("#selectMeasure").val(tableau.extensions.settings.get("MeasureName"));
+		  for (var index = 1; index < arrayFieldList.length; index++){
+			var SelectID = '#selectField_' + index;
+			var FieldID = 'FieldName_' + index;
+			$(SelectID).val(tableau.extensions.settings.get(FieldID));
+		  }
 	  }
 
 	  function create_Color_Dropdown(){
