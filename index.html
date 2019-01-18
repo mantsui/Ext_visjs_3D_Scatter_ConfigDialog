@@ -208,6 +208,7 @@
 	  }
 	  function RestoreExtSettings(arrayFieldList){
 		  $("#selectMeasure").val(tableau.extensions.settings.get("MeasureName"));
+		  $("#selectColor").val(tableau.extensions.settings.get("chartColorScale"));
 		  for (var index = 1; index < arrayFieldList.length; index++){
 			var SelectID = '#selectField_' + index;
 			var FieldID = 'FieldName_' + index;
