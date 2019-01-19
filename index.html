@@ -188,6 +188,7 @@
 				addElement(SecondDivID,'span','dropdown-label',ListID,'Select Measure');
 				addElement(ListID,'select','select','selectMeasure','');
 				$('#selectMeasure').append('<option disabled selected="selected">-- None Selected --</option>');
+				$('#selectMeasure').css('color', 'red');
 
 				arrayFieldList.forEach(function(currentValue){
 					//console.log('Looping: ' + currentValue);
