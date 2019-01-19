@@ -208,7 +208,12 @@
 	  }
 	  function RestoreExtSettings(arrayFieldList){
 		  $("#selectMeasure").val(tableau.extensions.settings.get("MeasureName"));
-		  $("#selectColor").val(tableau.extensions.settings.get("chartColorScale"));
+		  
+		  console.log('Test chartColorScale: ', tableau.extensions.settings.get("chartColorScale"));
+		  if(tableau.extensions.settings.get("chartColorScale") != null) {
+		  	$("#selectColor").val(tableau.extensions.settings.get("chartColorScale"));
+	  	  }
+		  
 		  for (var index = 1; index < arrayFieldList.length; index++){
 			var SelectID = '#selectField_' + index;
 			var FieldID = 'FieldName_' + index;
