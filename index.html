@@ -153,6 +153,7 @@
 			 + "FieldName_2: " + $("#selectField_2").val() + "\n"
 			 + "FieldName_3: " + $("#selectField_3").val() + "\n"
 			 + "FieldName_4: " + $("#selectField_4").val() + "\n");*/
+	    window.alert("saveButton hit");
 		  
 	    tableau.extensions.settings.saveAsync().then((currentSettings) => {
 	      tableau.extensions.ui.closeDialog("10");
