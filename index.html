@@ -42,9 +42,7 @@
     <div id="selectColorContainer" class="row">
 	<div class="col-md-6 col-xs-6">
 	     <span class="dropdown-label">Optional: Select Color</span>
-		<select id="selectColor" class="select">
-		     <!--option disabled selected="selected">** None Selected **</option-->
-		</select>
+		<select id="selectColor" class="select"></select>
 	</div>
      </div>
 
@@ -188,7 +186,7 @@
 				addElement(SecondDivID,'span','dropdown-label',ListID,'Select Measure');
 				addElement(ListID,'select','select','selectMeasure','');
 				$('#selectMeasure').append('<option disabled selected="selected">-- None Selected --</option>');
-				$(SecondDivID).css('color', 'red');
+				$('#' + SecondDivID).css('color', 'red');
 				$('#selectMeasure').css('color', 'red');
 
 				arrayFieldList.forEach(function(currentValue){
@@ -211,7 +209,6 @@
 	  function RestoreExtSettings(arrayFieldList){
 		  $("#selectMeasure").val(tableau.extensions.settings.get("MeasureName"));
 		  
-		  console.log('Test chartColorScale: ', tableau.extensions.settings.get("chartColorScale"));
 		  if(tableau.extensions.settings.get("chartColorScale") != null) {
 		  	$("#selectColor").val(tableau.extensions.settings.get("chartColorScale"));
 	  	  }
