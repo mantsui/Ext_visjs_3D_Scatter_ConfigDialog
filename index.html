@@ -142,6 +142,7 @@
 		if (index == 0) {
 			tableau.extensions.settings.set("MeasureName", $("#selectMeasure").val());
 		} else {
+			console.log('TEMP looping save to setting: ', SelectID, ' -- ', $(SelectID).val());
 			tableau.extensions.settings.set(FieldID, $(SelectID).val());
 		}		    
 	    }  
