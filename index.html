@@ -104,6 +104,11 @@
 	    $('#selectWorksheet').on('change', '', function (e) {
 	      columnsUpdate();
 	    });
+
+	    $('#selectFilterSheet').on('change', '', function (e) {
+	      filterColumnsUpdate();
+	    });
+
 	    $('#cancel').click(closeDialog);
 	    $('#save').click(saveButton);
 	  }
