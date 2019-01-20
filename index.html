@@ -183,7 +183,11 @@
 				tableau.extensions.settings.set(FieldID, $(SelectID).val());
 			}
 		}		    
-	    }  
+	    }
+
+	    if( $(selectFilterSheet).val() != null ) {
+		    tableau.extensions.settings.set( "FilterSheet", $(selectFilterSheet).val() );
+	    }
 	    // Debug
 	    /*window.alert( "worksheet setting value: " + $("#selectWorksheet").val() + "\n" 
 			 + "MeasureName: " + $("#selectMeasure").val() + "\n"
