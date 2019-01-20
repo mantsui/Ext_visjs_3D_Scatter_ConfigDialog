@@ -55,7 +55,7 @@
         </div>
     </div>
 
-    <div id="selectFilterColumns" class="row">
+    <div id="selectFiltersContainer" class="container">
     </div>
 
     <div class="row dialog-buttons">
@@ -156,10 +156,10 @@
 	      sumdata.columns.forEach(function (current_value) {
 		filterSheetColumns.push(current_value.fieldName);
 	      });
+	      console.log('TEMP filterSheetColumns ', filterSheetColumns);
 
 	      create_Filter_Dropdown_Lists(filterSheetColumns);
 	    });
-	    console.log('TEMP filterSheetColumns ', filterSheetColumns);
 	  }
 
 	  function closeDialog() {
@@ -256,7 +256,7 @@
 			var SelectID = 'selectFilterField_' + index;
 
 			//addElement(parentId, elementTag, elementClass, elementId, html)
-			addElement('selectFilterColumns','div','row',RowID,'');
+			addElement('selectFiltersContainer','div','row',RowID,'');
 			addElement(RowID,'div','col-md-6 col-xs-6',SecondDivID,'');
 			addElement(SecondDivID,'span','dropdown-label',ListID,'Optional: Select Apply Filter Column' + index);
 			addElement(ListID,'select','select',SelectID,'');
