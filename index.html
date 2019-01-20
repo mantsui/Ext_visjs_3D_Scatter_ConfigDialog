@@ -127,7 +127,9 @@
 	      clear_Prior_Dropdown_Lists(worksheetColumns); 	// Clear prior dropdowns
 	      worksheetColumns = [];				// Reset the array of field names
 	      sumdata.columns.forEach(function (current_value) {
-		worksheetColumns.push(current_value.fieldName);
+		if(current_value.dataType == 'string') {
+			worksheetColumns.push(current_value.fieldName);
+		}
 	      });
 
 	      create_Dropdown_Lists(worksheetColumns);
