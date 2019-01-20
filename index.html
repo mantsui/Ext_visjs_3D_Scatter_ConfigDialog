@@ -55,7 +55,7 @@
         </div>
     </div>
 
-    <div id="selectFilterColumnes" class="row">
+    <div id="selectFilterColumns" class="row">
     </div>
 
     <div class="row dialog-buttons">
@@ -143,7 +143,6 @@
 	  }
 
 	  function filterColumnsUpdate() {
-	    console.log('TEMP filtersheet selected: ', $('#selectFilterSheet').val() );
 	    // This gets the worksheet object from the drop down.
 	    var worksheets = tableau.extensions.dashboardContent.dashboard.worksheets;
 	    var worksheetName = $("#selectFilterSheet").val();
@@ -160,6 +159,7 @@
 
 	      create_Filter_Dropdown_Lists(filterSheetColumns);
 	    });
+	    console.log('TEMP filterSheetColumns ', filterSheetColumns);
 	  }
 
 	  function closeDialog() {
@@ -245,6 +245,29 @@
 			}			
 		}		
 	  }
+
+	  function create_Filter_Dropdown_Lists(arrayFieldList){
+
+		for (var index = 0; index < arrayFieldList.length; index++){
+			
+			var RowID = 'FilterRowID_' + index;
+			var SecondDivID = 'FilterSecondDivID_' + index;
+			var ListID = 'FilterDropdown_' + index;
+			var SelectID = 'selectFilterField_' + index;
+
+			//addElement(parentId, elementTag, elementClass, elementId, html)
+			addElement('selectFilterColumns','div','row',RowID,'');
+			addElement(RowID,'div','col-md-6 col-xs-6',SecondDivID,'');
+			addElement(SecondDivID,'span','dropdown-label',ListID,'Optional: Select Apply Filter Column' + index);
+			addElement(ListID,'select','select',SelectID,'');
+			$('#' + SelectID).append('<option disabled selected="selected">-- None Selected --</option>');
+
+			arrayFieldList.forEach(function(currentValue){
+				$('#' + SelectID).append("<option value='" + currentValue + "'>" + currentValue + "</option>");
+			});
+		}		
+	  }
+
 	  function RestoreExtSettings(arrayFieldList){
 		  $("#selectMeasure").val(tableau.extensions.settings.get("MeasureName"));
 		  
