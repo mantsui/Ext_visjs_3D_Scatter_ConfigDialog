@@ -141,6 +141,7 @@
 	  }
 
 	  function filterColumnsUpdate() {
+	    console.log('TEMP filtersheet selected: ', $('#selectFilterSheet').val() );
 	    // This gets the worksheet object from the drop down.
 	    var worksheets = tableau.extensions.dashboardContent.dashboard.worksheets;
 	    var worksheetName = $("#selectFilterSheet").val();
