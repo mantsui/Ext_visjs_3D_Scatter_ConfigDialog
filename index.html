@@ -82,6 +82,7 @@
 	  });
 		
 	  var worksheetColumns = [];
+	  var filterSheetColumns = [];
 
 	  function buildDialog() {
 	    // This gets all the worksheets within a dashboard and populates a
@@ -149,7 +150,7 @@
 	    var worksheet = worksheets.find(function (sheet) {
 	      return sheet.name === worksheetName;
 	    });
-	    var filterSheetColumns = []; 	// Reset the array of field names
+	    filterSheetColumns = []; 	// Reset the array of field names
 		  
 	    // This now gets the summary data column names for our chosen data source.
 	    worksheet.getSummaryDataAsync({ maxRows: 1 }).then(function (sumdata) {
@@ -192,6 +193,12 @@
 
 	    if( $(selectFilterSheet).val() != null ) {
 		    tableau.extensions.settings.set( "FilterSheet", $(selectFilterSheet).val() );
+	    }
+
+	    for (var index = 0; index < worksheetColumns.length; index++){
+		var SelectFilterID = '#selectFilterField_' + index;
+		var FilterFieldID = 'FilterFieldName_' + index;
+		tableau.extensions.settings.set(FilterFieldID, $(SelectFilterID).val());
 	    }
 	    // Debug
 	    /*window.alert( "worksheet setting value: " + $("#selectWorksheet").val() + "\n" 
