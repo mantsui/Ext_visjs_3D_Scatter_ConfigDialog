@@ -153,7 +153,10 @@
 		  
 	    // This now gets the summary data column names for our chosen data source.
 	    worksheet.getSummaryDataAsync({ maxRows: 1 }).then(function (sumdata) {
+	      console.log('TEMP sumdata: ', sumdata);
+		    
 	      sumdata.columns.forEach(function (current_value) {
+		console.log('TEMP sumdata.column current_value', current_value);
 		filterSheetColumns.push(current_value.fieldName);
 	      });
 	      console.log('TEMP filterSheetColumns ', filterSheetColumns);
