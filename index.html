@@ -195,7 +195,7 @@
 		    tableau.extensions.settings.set( "FilterSheet", $(selectFilterSheet).val() );
 	    }
 
-	    for (var index = 0; index < worksheetColumns.length; index++){
+	    for (var index = 0; index < filterSheetColumns.length; index++){
 		var SelectFilterID = '#selectFilterField_' + index;
 		var FilterFieldID = 'FilterFieldName_' + index;
 		tableau.extensions.settings.set(FilterFieldID, $(SelectFilterID).val());
