@@ -97,9 +97,16 @@
 	    //$('#save').button("disabled");
 	    $("#save").prop("disabled",true);
 
-	    if( $("#selectWorksheet").val() != null ) {
+	    /*if( $("#selectWorksheet").val() != null ) {
 	       $("#save").prop('disabled', false);	// Enable save button
-	    }
+	    }*/
+
+	    $("#selectWorksheet").change(function() {
+		if( $("#selectWorksheet").val() != null ) {
+			$("#save").prop('disabled', false);	// Enable save button
+	    	}
+	    });
+
 	    //console.log('TEST selectWorksheet', $("#selectWorksheet").val());
 	    //console.log('TEST selectMeasure', $("#selectMeasure").val());
 
