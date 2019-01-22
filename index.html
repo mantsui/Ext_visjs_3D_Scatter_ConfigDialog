@@ -60,7 +60,7 @@
 
     <div class="row dialog-buttons">
         <span id="error"></span>
-        <button id="save" class="btn btn-success">Save</button>
+        <button id="save" class="btn btn-success" disabled>Save</button>
         <button id="cancel" class="btn btn-danger">Cancel</button>
     </div>
 
@@ -94,7 +94,7 @@
 	    });
 
 	    // Disable Save Button until minimum form requirement is met
-	    $('#save').button("disable");
+	    //$('#save').button("disable");
 		  
 	    // If there is a worksheet saved in the settings, then update the sheets
 	    // dropdown and then populates the value. After which call the updateColumns
