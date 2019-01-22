@@ -93,6 +93,9 @@
 	      $("#selectFilterSheet").append("<option value='" + worksheet.name + "'>" + worksheet.name + "</option>");
 	    });
 
+	    // Disable Save Button until minimum form requirement is met
+	    $('#save').button("disable");
+		  
 	    // If there is a worksheet saved in the settings, then update the sheets
 	    // dropdown and then populates the value. After which call the updateColumns
 	    // function to populate the other two drop down lists.
