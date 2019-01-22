@@ -101,11 +101,17 @@
 	       $("#save").prop('disabled', false);	// Enable save button
 	    }*/
 
-	    $("#selectWorksheet").change(function() {
+	    /*$("#selectWorksheet").change(function() {
 		if( $("#selectWorksheet").val() != null ) {
 			$("#save").prop('disabled', false);	// Enable save button
 	    	}
+	    });*/
+	    $("#selectField_1").change(function() {
+		if( $("##selectField_1").val() != null ) {
+			$("#save").prop('disabled', false);	// Enable save button
+	    	}
 	    });
+
 
 	    //console.log('TEST selectWorksheet', $("#selectWorksheet").val());
 	    //console.log('TEST selectMeasure', $("#selectMeasure").val());
@@ -199,7 +205,6 @@
 		if (index == 0) {
 			tableau.extensions.settings.set("MeasureName", $("#selectMeasure").val());
 		} else {
-			//console.log('TEMP looping save to setting: ', SelectID, ' -- ', $(SelectID).val());
 			if( $(SelectID).val() != null ) {
 				tableau.extensions.settings.set(FieldID, $(SelectID).val());
 			}
