@@ -105,7 +105,7 @@
 		if( $("#selectWorksheet").val() != null ) {
 			$("#save").prop('disabled', false);	// Enable save button
 	    	}
-	    });*/
+	    });
 	    if( $("#selectField_1").val() != undefined ) {
 	    $("#selectField_1").change(function() {
 		console.log('#selectField_1 change noted');
@@ -114,7 +114,7 @@
 			$("#save").prop('disabled', false);	// Enable save button
 	    	}
 	    });
-	    }
+	    }*/
 
 	    //console.log('TEST selectWorksheet', $("#selectWorksheet").val());
 	    //console.log('TEST selectMeasure', $("#selectMeasure").val());
@@ -163,6 +163,13 @@
 	      // Try to restore the drop down if a value exists within the settings.
 	      RestoreExtSettings(worksheetColumns);
 
+	      $("#selectField_1").change(function() {
+		console.log('#selectField_1 change noted');
+		    
+		if( $("#selectField_1").val() != null ) {
+			$("#save").prop('disabled', false);	// Enable save button
+	    	}
+	      });
 	      //console.log('("#selectValue").val()');
 	      //console.log($("#selectMeasure").val());
 
