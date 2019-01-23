@@ -141,11 +141,12 @@
 	      // Try to restore the drop down if a value exists within the settings.
 	      RestoreExtSettings(worksheetColumns);
 
-	      $("#selectField_1").change(function() {
+	      enableSaveButton();
+	      /*$("#selectField_1").change(function() {
 		if( $("#selectWorksheet").val() != null && $("#selectMeasure").val() != null && $("#selectField_1").val() != null ) {
 			$("#save").prop('disabled', false);	// Enable save button
 	    	}
-	      });
+	      });*/
 	      //console.log('("#selectValue").val()');
 	      //console.log($("#selectMeasure").val());
 
@@ -354,6 +355,14 @@
 			removeElement(SecondDivID);
 			removeElement(RowID);
 		}		
+	  }
+
+	  function enableSaveButton(){
+		$("#selectField_1").change(function() {
+			if( $("#selectWorksheet").val() != null && $("#selectMeasure").val() != null && $("#selectField_1").val() != null ) {
+				$("#save").prop('disabled', false);	// Enable save button
+			}
+		});
 	  }
 
 	  function removeElement(elementId) {
