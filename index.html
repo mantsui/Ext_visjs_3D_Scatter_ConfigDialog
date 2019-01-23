@@ -97,28 +97,6 @@
 	    //$('#save').button("disabled");
 	    $("#save").prop("disabled",true);
 
-	    /*if( $("#selectWorksheet").val() != null ) {
-	       $("#save").prop('disabled', false);	// Enable save button
-	    }*/
-
-	    /*$("#selectWorksheet").change(function() {
-		if( $("#selectWorksheet").val() != null ) {
-			$("#save").prop('disabled', false);	// Enable save button
-	    	}
-	    });
-	    if( $("#selectField_1").val() != undefined ) {
-	    $("#selectField_1").change(function() {
-		console.log('#selectField_1 change noted');
-		    
-		if( $("#selectField_1").val() != null ) {
-			$("#save").prop('disabled', false);	// Enable save button
-	    	}
-	    });
-	    }*/
-
-	    //console.log('TEST selectWorksheet', $("#selectWorksheet").val());
-	    //console.log('TEST selectMeasure', $("#selectMeasure").val());
-
 	    // If there is a worksheet saved in the settings, then update the sheets
 	    // dropdown and then populates the value. After which call the updateColumns
 	    // function to populate the other two drop down lists.
@@ -164,8 +142,6 @@
 	      RestoreExtSettings(worksheetColumns);
 
 	      $("#selectField_1").change(function() {
-		console.log('#selectField_1 change noted');
-		    
 		if( $("#selectWorksheet").val() != null && $("#selectMeasure").val() != null && $("#selectField_1").val() != null ) {
 			$("#save").prop('disabled', false);	// Enable save button
 	    	}
