@@ -166,7 +166,7 @@
 	      $("#selectField_1").change(function() {
 		console.log('#selectField_1 change noted');
 		    
-		if( $("#selectField_1").val() != null ) {
+		if( $("#selectWorksheet").val() != null && $("#selectMeasure").val() != null && $("#selectField_1").val() != null ) {
 			$("#save").prop('disabled', false);	// Enable save button
 	    	}
 	      });
