@@ -94,8 +94,7 @@
 	    });
 
 	    // Disable Save Button until minimum form requirement is met
-	    //$('#save').button("disabled");
-	    $("#save").prop("disabled",true);
+	    defaultDisableSaveButton();
 
 	    // If there is a worksheet saved in the settings, then update the sheets
 	    // dropdown and then populates the value. After which call the updateColumns
@@ -142,11 +141,7 @@
 	      RestoreExtSettings(worksheetColumns);
 
 	      enableSaveButton();
-	      /*$("#selectField_1").change(function() {
-		if( $("#selectWorksheet").val() != null && $("#selectMeasure").val() != null && $("#selectField_1").val() != null ) {
-			$("#save").prop('disabled', false);	// Enable save button
-	    	}
-	      });*/
+
 	      //console.log('("#selectValue").val()');
 	      //console.log($("#selectMeasure").val());
 
@@ -355,6 +350,13 @@
 			removeElement(SecondDivID);
 			removeElement(RowID);
 		}		
+	  }
+
+	  function defaultDisableSaveButton() {
+		// Disable Save Button until minimum form requirement is met
+		// One measure and two dimensions must be specified
+		$("#save").prop("disabled",true);
+
 	  }
 
 	  function enableSaveButton(){
