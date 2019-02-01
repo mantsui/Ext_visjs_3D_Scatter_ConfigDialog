@@ -134,6 +134,7 @@
 		
 	  var worksheetColumns = [];
 	  var measureColumns = [];
+	  var dimensionColumns = [];
 	  var filterSheetColumns = [];
 
 	  function buildDialog() {
@@ -188,6 +189,11 @@
 		if(current_value.dataType == 'float' || current_value.dataType == 'int') {
 			measureColumns.push(current_value.fieldName);
 		}
+
+		if(current_value.dataType == 'string') {
+			dimensionColumns.push(current_value.fieldName);
+		}
+
 	      });
 
 	      create_Dropdown_Lists(worksheetColumns, measureColumns);
