@@ -133,6 +133,7 @@
 	  });
 		
 	  var worksheetColumns = [];
+	  var measureColumns = [];
 	  var filterSheetColumns = [];
 
 	  function buildDialog() {
@@ -183,8 +184,13 @@
 	      worksheetColumns = [];				// Reset the array of field names
 	      sumdata.columns.forEach(function (current_value) {
 		worksheetColumns.push(current_value.fieldName);
+
+		if(current_value.dataType == 'float' || current_value.dataType == 'int') {
+			measureColumns.push(current_value.fieldName);
+		}
 	      });
 
+	      console.log('measureColumns: ', measureColumns);
 	      create_Dropdown_Lists(worksheetColumns);
 	      create_Color_Dropdown();
 
