@@ -190,8 +190,7 @@
 		}
 	      });
 
-	      console.log('measureColumns: ', measureColumns);
-	      create_Dropdown_Lists(worksheetColumns);
+	      create_Dropdown_Lists(worksheetColumns, measureColumns);
 	      create_Color_Dropdown();
 
 	      // Try to restore the drop down if a value exists within the settings.
@@ -284,7 +283,7 @@
 		p.appendChild(newElement);
 	  }
 
-	  function create_Dropdown_Lists(arrayFieldList){
+	  function create_Dropdown_Lists(arrayFieldList, measureList){
 
 		for (var index = 0; index < arrayFieldList.length; index++){
 			
@@ -305,8 +304,10 @@
 				$('#' + SecondDivID).css('color', 'red');
 				$('#selectMeasure').css('color', 'red');
 
-				arrayFieldList.forEach(function(currentValue){
-					//console.log('Looping: ' + currentValue);
+				//arrayFieldList.forEach(function(currentValue){
+					//$('#selectMeasure').append("<option value='" + currentValue + "'>" + currentValue + "</option>");
+				//});
+				measureList.forEach(function(currentValue){
 					$('#selectMeasure').append("<option value='" + currentValue + "'>" + currentValue + "</option>");
 				});
 
