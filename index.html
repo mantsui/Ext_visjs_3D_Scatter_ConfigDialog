@@ -204,7 +204,8 @@
 	      });
 
 	      create_MeasureDropdown(measureColumns);
-	      create_Dropdown_Lists(worksheetColumns, measureColumns);
+	      create_DimensionDropdown(dimensionColumns);
+	      //create_Dropdown_Lists(worksheetColumns, measureColumns);
 	      create_Color_Dropdown();
 
 	      // Try to restore the drop down if a value exists within the settings.
@@ -317,7 +318,31 @@
 			console.log('Debug measure dropdown looping: ', currentValue);
 		});
 	  }
-		
+
+	  function create_DimensionDropdown(arrayFieldList){
+
+		for (var index = 0; index < arrayFieldList.length; index++){
+			
+			var RowID = 'RowID_' + index;
+			var SecondDivID = 'SecondDivID_' + index;
+			var ListID = 'Dropdown_' + index;
+			var SelectID = 'selectField_' + index;
+
+			//addElement(parentId, elementTag, elementClass, elementId, html)
+			addElement('configContainer','div','row',RowID,'');
+			addElement(RowID,'div','col-md-6 col-xs-6',SecondDivID,'');
+			
+			// Loop through all the dimension fields and populate the drop downs.
+			addElement(SecondDivID,'span','dropdown-label',ListID,'Select Category # ' + index);
+			addElement(ListID,'select','select',SelectID,'');
+			$('#' + SelectID).append('<option disabled selected="selected">-- None Selected --</option>');
+
+			arrayFieldList.forEach(function(currentValue){
+				$('#' + SelectID).append("<option value='" + currentValue + "'>" + currentValue + "</option>");
+			});
+		}		
+	  }
+
 	  function create_Dropdown_Lists(arrayFieldList, measureList){
 
 		for (var index = 0; index < arrayFieldList.length; index++){
