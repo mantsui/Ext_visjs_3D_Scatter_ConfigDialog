@@ -296,6 +296,12 @@
 	  }
 
 	  function addElement(parentId, elementTag, elementClass, elementId, html) {
+		  
+		console.log('Debug parentId: ', parentId);
+		console.log('Debug elementTag: ', elementTag);
+		console.log('Debug elementClass: ', elementClass);
+		console.log('Debug elementId: ', elementId);
+		console.log('Debug html: ', html);
 		// Adds an element to the document
 		var p = document.getElementById(parentId);
 		var newElement = document.createElement(elementTag);
