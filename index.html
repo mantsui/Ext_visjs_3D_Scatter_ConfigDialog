@@ -103,6 +103,7 @@
 	</tr>
 
 	<br/>
+	<br/>
 	<tr>
 	     <td class="option-description">
 			Honarable mention:
@@ -208,6 +209,7 @@
 
 	      });
 
+	      create_MeasureDropdown(measureColumns);
 	      create_Dropdown_Lists(worksheetColumns, measureColumns);
 	      create_Color_Dropdown();
 
@@ -253,13 +255,14 @@
 	    // On clicking save, we save the following settings.
 	    tableau.extensions.settings.set("worksheet", $("#selectWorksheet").val());
 	    tableau.extensions.settings.set("chartColorScale", $("#selectColor").val());
+	    tableau.extensions.settings.set("MeasureName", $("#selectMeasure").val());
 
 	    for (var index = 0; index < worksheetColumns.length; index++){
 		var SelectID = '#selectField_' + index;
 		var FieldID = 'FieldName_' + index;
 
 		if (index == 0) {
-			tableau.extensions.settings.set("MeasureName", $("#selectMeasure").val());
+			//tableau.extensions.settings.set("MeasureName", $("#selectMeasure").val()); commented on 2/3/19
 		} else {
 			if( $(SelectID).val() != null ) {
 				tableau.extensions.settings.set(FieldID, $(SelectID).val());
@@ -301,6 +304,23 @@
 		p.appendChild(newElement);
 	  }
 
+	  function create_MeasureDropdown(measureList){
+		var RowID = 'MeasureRowID_0';
+		var SecondDivID = 'MeasureSecondDivID_0';
+		var ListID = 'MeasureDropdown_0';
+		var SelectID = 'selectMeasureField_0';  
+		  
+		addElement(SecondDivID,'span','dropdown-label',ListID,'Select Measure');
+		addElement(ListID,'select','select','selectMeasure','');
+		$('#selectMeasure').append('<option disabled selected="selected">-- None Selected --</option>');
+		$('#' + SecondDivID).css('color', 'red');
+		$('#selectMeasure').css('color', 'red');
+
+		measureList.forEach(function(currentValue){
+			$('#selectMeasure').append("<option value='" + currentValue + "'>" + currentValue + "</option>");
+		});
+	  }
+		
 	  function create_Dropdown_Lists(arrayFieldList, measureList){
 
 		for (var index = 0; index < arrayFieldList.length; index++){
