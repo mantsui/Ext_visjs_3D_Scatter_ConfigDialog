@@ -104,6 +104,7 @@
 
 	<br/>
 	<br/>
+	<br/>
 	<tr>
 	     <td class="option-description">
 			Honarable mention:
@@ -311,7 +312,9 @@
 		var SelectID = 'selectMeasureField_0';  
 		  
 		addElement(SecondDivID,'span','dropdown-label',ListID,'Select Measure');
+		console.log('create_MeasureDropdown 01 addElement()');
 		addElement(ListID,'select','select','selectMeasure','');
+		console.log('create_MeasureDropdown 02 addElement()');
 		$('#selectMeasure').append('<option disabled selected="selected">-- None Selected --</option>');
 		$('#' + SecondDivID).css('color', 'red');
 		$('#selectMeasure').css('color', 'red');
