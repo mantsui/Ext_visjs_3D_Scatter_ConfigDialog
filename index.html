@@ -101,11 +101,9 @@
 			D3.js by Mike Bostock https://d3js.org
 	     </td>
 	</tr>
-
-	<br/>
-	<br/>
-	<br/>
-	<br/>
+	    
+	<tr>
+	</tr>
 	<tr>
 	     <td class="option-description">
 			Honarable mention:
@@ -114,17 +112,6 @@
 			Tableau Extension Blog by Toan Hoang https://tableaumagic.com/creating-a-tableau-extension-part-three/
 	     </td>
 	</tr>
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -297,12 +284,6 @@
 	  }
 
 	  function addElement(parentId, elementTag, elementClass, elementId, html) {
-		  
-		console.log('Debug parentId: ', parentId);
-		console.log('Debug elementTag: ', elementTag);
-		console.log('Debug elementClass: ', elementClass);
-		console.log('Debug elementId: ', elementId);
-		console.log('Debug html: ', html);
 		// Adds an element to the document
 		var p = document.getElementById(parentId);
 		var newElement = document.createElement(elementTag);
@@ -320,11 +301,8 @@
 
 		addElement('configContainer','div','row',RowID,'');
 		addElement(RowID,'div','col-md-6 col-xs-6',SecondDivID,'');		  
-		//console.log('create_MeasureDropdown 00 addElement()'); TEMP
 		addElement(SecondDivID,'span','dropdown-label',ListID,'Select Measure');
-		//console.log('create_MeasureDropdown 01 addElement()'); TEMP
 		addElement(ListID,'select','select','selectMeasure','');
-		//console.log('create_MeasureDropdown 02 addElement()'); TEMP
 		$('#selectMeasure').append('<option disabled selected="selected">-- None Selected --</option>');
 		$('#' + SecondDivID).css('color', 'red');
 		$('#selectMeasure').css('color', 'red');
@@ -349,11 +327,11 @@
 			
 			// Loop through all the columns and populate the drop downs.
 			if (index == 0) {
-				addElement(SecondDivID,'span','dropdown-label',ListID,'Select Measure');
-				addElement(ListID,'select','select','selectMeasure','');
-				$('#selectMeasure').append('<option disabled selected="selected">-- None Selected --</option>');
-				$('#' + SecondDivID).css('color', 'red');
-				$('#selectMeasure').css('color', 'red');
+				//addElement(SecondDivID,'span','dropdown-label',ListID,'Select Measure');
+				//addElement(ListID,'select','select','selectMeasure','');
+				//$('#selectMeasure').append('<option disabled selected="selected">-- None Selected --</option>');
+				//$('#' + SecondDivID).css('color', 'red');
+				//$('#selectMeasure').css('color', 'red');
 
 				//arrayFieldList.forEach(function(currentValue){
 					//$('#selectMeasure').append("<option value='" + currentValue + "'>" + currentValue + "</option>");
