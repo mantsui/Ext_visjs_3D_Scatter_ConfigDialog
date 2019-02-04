@@ -105,6 +105,7 @@
 	<br/>
 	<br/>
 	<br/>
+	<br/>
 	<tr>
 	     <td class="option-description">
 			Honarable mention:
@@ -316,12 +317,14 @@
 		var SecondDivID = 'MeasureSecondDivID_0';
 		var ListID = 'MeasureDropdown_0';
 		var SelectID = 'selectMeasureField_0';  
-		  
-		console.log('create_MeasureDropdown 00 addElement()');
+
+		addElement('configContainer','div','row',RowID,'');
+		addElement(RowID,'div','col-md-6 col-xs-6',SecondDivID,'');		  
+		//console.log('create_MeasureDropdown 00 addElement()'); TEMP
 		addElement(SecondDivID,'span','dropdown-label',ListID,'Select Measure');
-		console.log('create_MeasureDropdown 01 addElement()');
+		//console.log('create_MeasureDropdown 01 addElement()'); TEMP
 		addElement(ListID,'select','select','selectMeasure','');
-		console.log('create_MeasureDropdown 02 addElement()');
+		//console.log('create_MeasureDropdown 02 addElement()'); TEMP
 		$('#selectMeasure').append('<option disabled selected="selected">-- None Selected --</option>');
 		$('#' + SecondDivID).css('color', 'red');
 		$('#selectMeasure').css('color', 'red');
