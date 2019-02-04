@@ -103,7 +103,10 @@
 	</tr>
 	    
 	<tr>
+	     <td class="option-description"> </td>
+	     <td class="option-header"> </td>
 	</tr>
+
 	<tr>
 	     <td class="option-description">
 			Honarable mention:
@@ -309,6 +312,7 @@
 
 		measureList.forEach(function(currentValue){
 			$('#selectMeasure').append("<option value='" + currentValue + "'>" + currentValue + "</option>");
+			console.log('Debug measure dropdown looping: ', currentValue);
 		});
 	  }
 		
