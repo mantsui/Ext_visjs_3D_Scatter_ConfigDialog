@@ -315,7 +315,6 @@
 
 		measureList.forEach(function(currentValue){
 			$('#selectMeasure').append("<option value='" + currentValue + "'>" + currentValue + "</option>");
-			console.log('Debug measure dropdown looping: ', currentValue);
 		});
 	  }
 
@@ -340,47 +339,6 @@
 			arrayFieldList.forEach(function(currentValue){
 				$('#' + SelectID).append("<option value='" + currentValue + "'>" + currentValue + "</option>");
 			});
-		}		
-	  }
-
-	  function create_Dropdown_Lists(arrayFieldList, measureList){
-
-		for (var index = 0; index < arrayFieldList.length; index++){
-			
-			var RowID = 'RowID_' + index;
-			var SecondDivID = 'SecondDivID_' + index;
-			var ListID = 'Dropdown_' + index;
-			var SelectID = 'selectField_' + index;
-
-			//addElement(parentId, elementTag, elementClass, elementId, html)
-			addElement('configContainer','div','row',RowID,'');
-			addElement(RowID,'div','col-md-6 col-xs-6',SecondDivID,'');
-			
-			// Loop through all the columns and populate the drop downs.
-			if (index == 0) {
-				//addElement(SecondDivID,'span','dropdown-label',ListID,'Select Measure');
-				//addElement(ListID,'select','select','selectMeasure','');
-				//$('#selectMeasure').append('<option disabled selected="selected">-- None Selected --</option>');
-				//$('#' + SecondDivID).css('color', 'red');
-				//$('#selectMeasure').css('color', 'red');
-
-				//arrayFieldList.forEach(function(currentValue){
-					//$('#selectMeasure').append("<option value='" + currentValue + "'>" + currentValue + "</option>");
-				//});
-				//measureList.forEach(function(currentValue){
-					//$('#selectMeasure').append("<option value='" + currentValue + "'>" + currentValue + "</option>");
-				//});
-
-			} else {
-				addElement(SecondDivID,'span','dropdown-label',ListID,'Select Category # ' + index);
-				addElement(ListID,'select','select',SelectID,'');
-				$('#' + SelectID).append('<option disabled selected="selected">-- None Selected --</option>');
-
-				arrayFieldList.forEach(function(currentValue){
-					$('#' + SelectID).append("<option value='" + currentValue + "'>" + currentValue + "</option>");
-				});
-
-			}			
 		}		
 	  }
 
