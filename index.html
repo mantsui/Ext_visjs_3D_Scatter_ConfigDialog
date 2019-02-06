@@ -195,7 +195,8 @@
 	    });
 	    // This now gets the summary data column names for our chosen data source.
 	    worksheet.getSummaryDataAsync({ maxRows: 1 }).then(function (sumdata) {
-	      clear_Prior_Dropdown_Lists(worksheetColumns); 	// Clear prior dropdowns
+	      //clear_Prior_Dropdown_Lists(worksheetColumns); 	// Clear prior dropdowns
+	      clear_Prior_Measure_Dropdown();
 	      worksheetColumns = [];				// Reset the array of field names
 	      sumdata.columns.forEach(function (current_value) {
 		worksheetColumns.push(current_value.fieldName);
@@ -395,6 +396,19 @@
 		$('#selectColor').val('Rainbow'); // Set default color
 	  }
 
+	  function clear_Prior_Measure_Dropdown(){
+		var RowID = 'MeasureRowID_0';
+		var SecondDivID = 'MeasureSecondDivID_0';
+		var ListID = 'MeasureDropdown_0';
+
+		$("#selectMeasure").text("");	// Reset html tag
+		removeElement('selectMeasure');	// Delete previous configuration.
+		tableau.extensions.settings.erase("MeasureName")// Delete Tableau extension key-pair settings
+		removeElement(ListID);
+		removeElement(SecondDivID);
+		removeElement(RowID);
+	  }
+
 	  function clear_Prior_Dropdown_Lists(arrayFieldList){
 		for (var index = 0; index < arrayFieldList.length; index++){
 			var RowID = 'RowID_' + index;
@@ -415,7 +429,7 @@
 			removeElement(ListID);
 			removeElement(SecondDivID);
 			removeElement(RowID);
-		}		
+		}
 	  }
 
 	  function clear_Prior_Filter_Dropdown_Lists(arrayFieldList){
