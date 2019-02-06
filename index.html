@@ -467,7 +467,9 @@
 	  function removeElement(elementId) {
 		// Removes an element from the document
 		var element = document.getElementById(elementId);
-		element.parentNode.removeChild(element);
+		if(element.parentNode != null && element.parentNode != undefined) {
+			element.parentNode.removeChild(element);
+		}
 	  }
 
 	})();
