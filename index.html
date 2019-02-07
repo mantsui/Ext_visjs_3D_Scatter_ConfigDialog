@@ -271,9 +271,10 @@
 			//tableau.extensions.settings.set("MeasureName", $("#selectMeasure").val()); commented on 2/3/19
 		} else {
 			if( $(SelectID).val() != null ) {
-				tableau.extensions.settings.set(FieldID, $(SelectID).val());
+				//tableau.extensions.settings.set(FieldID, $(SelectID).val());
 			}
-		}		    
+		}
+		tableau.extensions.settings.set(FieldID, $(SelectID).val());
 	    }
 
 	    if( $(selectFilterSheet).val() != null ) {
