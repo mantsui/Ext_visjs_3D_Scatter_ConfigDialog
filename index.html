@@ -198,6 +198,9 @@
 	      //clear_Prior_Dropdown_Lists(worksheetColumns); 	// Clear prior dropdowns
 	      clear_Prior_Measure_Dropdown();
 	      worksheetColumns = [];				// Reset the array of field names
+	      measureColumns = [];				// Reset the array of field names
+	      dimensionColumns = [];
+
 	      sumdata.columns.forEach(function (current_value) {
 		worksheetColumns.push(current_value.fieldName);
 
