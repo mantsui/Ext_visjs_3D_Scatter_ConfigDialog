@@ -195,8 +195,9 @@
 	    });
 	    // This now gets the summary data column names for our chosen data source.
 	    worksheet.getSummaryDataAsync({ maxRows: 1 }).then(function (sumdata) {
-	      //clear_Prior_Dropdown_Lists(worksheetColumns); 	// Clear prior dropdowns
-	      clear_Prior_Measure_Dropdown();
+	      clear_Prior_Measure_Dropdown();			// Clear prior dropdowns
+	      clear_Prior_Dimension_Dropdown(measureColumns);
+
 	      worksheetColumns = [];				// Reset the array of field names
 	      measureColumns = [];				// Reset the array of field names
 	      dimensionColumns = [];
@@ -403,6 +404,23 @@
 		removeElement(ListID);
 		removeElement(SecondDivID);
 		removeElement(RowID);
+	  }
+
+	  function clear_Prior_Dimension_Dropdown(arrayFieldList){
+		for (var index = 0; index < arrayFieldList.length; index++){
+			var RowID = 'RowID_' + index;
+			var SecondDivID = 'SecondDivID_' + index;
+			var ListID = 'Dropdown_' + index;
+			var SelectID = 'selectField_' + index;
+			var FieldIndex = 'FieldName_' + index;
+			
+			$("#" + SelectID).text("");	// Reset html tag and delete previous configuration.
+			removeElement(SelectID);	// Delete previous configuration.
+			tableau.extensions.settings.erase(FieldIndex)	// Delete Tableau extension key-pair settings
+			removeElement(ListID);
+			removeElement(SecondDivID);
+			removeElement(RowID);
+		}
 	  }
 
 	  function clear_Prior_Dropdown_Lists(arrayFieldList){
