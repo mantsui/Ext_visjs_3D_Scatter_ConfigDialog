@@ -196,7 +196,7 @@
 	    // This now gets the summary data column names for our chosen data source.
 	    worksheet.getSummaryDataAsync({ maxRows: 1 }).then(function (sumdata) {
 	      clear_Prior_Measure_Dropdown();			// Clear prior dropdowns
-	      clear_Prior_Dimension_Dropdown(measureColumns);
+	      clear_Prior_Dimension_Dropdown(dimensionColumns);
 
 	      worksheetColumns = [];				// Reset the array of field names
 	      measureColumns = [];				// Reset the array of field names
