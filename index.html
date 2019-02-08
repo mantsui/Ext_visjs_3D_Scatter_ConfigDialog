@@ -203,7 +203,6 @@
 	      dimensionColumns = [];
 
 	      sumdata.columns.forEach(function (current_value) {
-		worksheetColumns.push(current_value.fieldName);
 
 		if(current_value.dataType == 'float' || current_value.dataType == 'int') {
 			measureColumns.push(current_value.fieldName);
@@ -221,7 +220,8 @@
 	      create_Color_Dropdown();
 
 	      // Try to restore the drop down if a value exists within the settings.
-	      RestoreExtSettings(worksheetColumns);
+	      //RestoreExtSettings(worksheetColumns);
+	      RestoreExtSettings(dimensionColumns);
 
 	      enableSaveButton();
 
@@ -376,7 +376,7 @@
 		  	$("#selectColor").val(tableau.extensions.settings.get("chartColorScale"));
 	  	  }
 		  
-		  for (var index = 1; index < arrayFieldList.length; index++){
+		  for (var index = 0; index < arrayFieldList.length; index++){
 			var SelectID = '#selectField_' + index;
 			var FieldID = 'FieldName_' + index;
 			$(SelectID).val(tableau.extensions.settings.get(FieldID));
