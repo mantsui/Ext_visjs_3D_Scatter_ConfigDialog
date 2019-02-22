@@ -232,6 +232,9 @@
 
 	      //console.log('("#selectValue").val()');
 	      //console.log($("#selectMeasure").val());
+	      $(":radio[name=dollarSign]").change(function() {
+		console.log('Radio Button selected', this.value);
+	      });
 
 	    });
 	  }
@@ -269,8 +272,8 @@
 	    tableau.extensions.settings.set("chartColorScale", $("#selectColor").val());
 	    tableau.extensions.settings.set("MeasureName", $("#selectMeasure").val());
 
-	    console.log('Dollar Sign Button:', $('.dollarSign:selected').val() );  
-	    alert("Temp");
+	    //console.log('Dollar Sign Button:', $('.dollarSign:selected').val() ); TEMP  
+	    //alert("Temp"); TEMP
 
 	    for (var index = 0; index < dimensionColumns.length; index++){
 		var SelectID = '#selectField_' + index;
