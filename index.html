@@ -271,10 +271,7 @@
 	    tableau.extensions.settings.set("worksheet", $("#selectWorksheet").val());
 	    tableau.extensions.settings.set("chartColorScale", $("#selectColor").val());
 	    tableau.extensions.settings.set("MeasureName", $("#selectMeasure").val());
-
-	    //console.log('Dollar Sign Button:', $('.dollarSign:selected').val() ); TEMP  
-	    //alert( $(":radio[name=dollarSign]").val() );
-	    alert( document.getElementById('dollarSign_Yes').checked );
+	    tableau.extensions.settings.set( "isDollarSign", document.getElementById('dollarSign_Yes').checked );
 
 	    for (var index = 0; index < dimensionColumns.length; index++){
 		var SelectID = '#selectField_' + index;
