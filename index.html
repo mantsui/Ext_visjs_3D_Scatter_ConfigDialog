@@ -41,8 +41,8 @@
     </div>
 
     <div id="dollarSignButtonContainer" class="row">
-	<input type="radio" name="dollarSign" value="Yes" checked> Dollar Sign<br>
-	<input type="radio" name="dollarSign" value="No"> No Dollar Sign<br>
+	<input type="radio" name="dollarSign" id="dollarSign_Yes" value="Yes" checked> Dollar Sign<br>
+	<input type="radio" name="dollarSign" id="dollarSign_No" value="No"> No Dollar Sign<br>
     </div>
 
     <div id="selectColorContainer" class="row">
@@ -273,7 +273,8 @@
 	    tableau.extensions.settings.set("MeasureName", $("#selectMeasure").val());
 
 	    //console.log('Dollar Sign Button:', $('.dollarSign:selected').val() ); TEMP  
-	    alert( $(":radio[name=dollarSign]").val() );
+	    //alert( $(":radio[name=dollarSign]").val() );
+	    alert( document.getElementById('dollarSign_Yes').checked );
 
 	    for (var index = 0; index < dimensionColumns.length; index++){
 		var SelectID = '#selectField_' + index;
