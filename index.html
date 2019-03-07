@@ -479,7 +479,8 @@
 
 	  function enableSaveButton(arrayFieldList){
 		
-		$("#selectField_1").change(function() {
+		//$("#selectField_1").change(function() {
+		document.getElementsByClassName('dropdown-label').onchange = function () {
 			var isCompleted = 'True';
 			
 			if( $("#selectWorksheet").val() == null ){
