@@ -203,9 +203,9 @@
 	      clear_Prior_Measure_Dropdown();			// Clear prior dropdowns
 	      clear_Prior_Dimension_Dropdown(dimensionColumns);
 
-	      worksheetColumns = [];				// Reset the array of field names
-	      measureColumns = [];				// Reset the array of field names
-	      dimensionColumns = [];
+	      worksheetColumns = [];	// Reset the array of field names
+	      measureColumns = [];	// Reset the array of field names
+	      dimensionColumns = [];	// Reset the array of field names
 
 	      sumdata.columns.forEach(function (current_value) {
 
@@ -221,14 +221,12 @@
 
 	      create_MeasureDropdown(measureColumns);
 	      create_DimensionDropdown(dimensionColumns);
-	      //create_Dropdown_Lists(worksheetColumns, measureColumns);
 	      create_Color_Dropdown();
 
 	      // Try to restore the drop down if a value exists within the settings.
-	      //RestoreExtSettings(worksheetColumns);
 	      RestoreExtSettings(dimensionColumns);
 
-	      enableSaveButton();
+	      enableSaveButton(dimensionColumns);
 
 	      //console.log('("#selectValue").val()');
 	      //console.log($("#selectMeasure").val());
@@ -479,7 +477,7 @@
 
 	  }
 
-	  function enableSaveButton(){
+	  function enableSaveButton(arrayFieldList){
 		
 		$("#selectField_1").change(function() {
 			var isCompleted = 'True';
