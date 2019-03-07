@@ -495,12 +495,12 @@
 			// Check to see all Dimension dropdowns have been completed.
 			for (var index = 0; index < arrayFieldList.length; index++){
 				var SelectID = '#selectField_' + index;
-				if $(SelectID).val() == null{
+				if( $(SelectID).val() == null ){
 					isCompleted = 'False';
 				}
 			}
 			
-			if isCompleted == 'True'{
+			if( isCompleted == 'True' ){
 				$("#save").prop('disabled', false);	// Enable save button
 			}
 		});
