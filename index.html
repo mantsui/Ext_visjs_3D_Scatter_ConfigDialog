@@ -245,8 +245,30 @@
 
 	      enableSaveButton(dimensionColumns);
 		    
-	      //$('.picker').on('change', function () {
-	      //}  Test
+	      $('.select').on('change', function () {
+		console.log('Checking...');
+		var isCompleted = 'True';
+
+		if( $("#selectWorksheet").val() == null ){
+			isCompleted = 'False';
+		}
+
+		if( $("#selectMeasure").val() == null ){
+			isCompleted = 'False';
+		}
+
+		// Check to see all Dimension dropdowns have been completed.
+		for (var index = 0; index < dimensionColumns.length; index++){
+			var SelectID = '#selectField_' + index;
+			if( $(SelectID).val() == null ){
+				isCompleted = 'False';
+			}
+		}
+
+		if( isCompleted == 'True' ){
+			$("#save").prop('disabled', false);	// Enable save button
+		}
+	      }
 
 	      //console.log('("#selectValue").val()');
 	      //console.log($("#selectMeasure").val());
