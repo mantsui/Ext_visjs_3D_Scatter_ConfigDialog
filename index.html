@@ -121,6 +121,23 @@
 	     </td>
 	     <td class="option-header"> </td>
 	</tr>
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
 	<tr>
 	     <td class="option-description">
 			Honarable mention:
@@ -227,6 +244,9 @@
 	      RestoreExtSettings(dimensionColumns);
 
 	      enableSaveButton(dimensionColumns);
+		    
+	      //$('.picker').on('change', function () {
+	      //}  Test
 
 	      //console.log('("#selectValue").val()');
 	      //console.log($("#selectMeasure").val());
@@ -480,7 +500,7 @@
 	  function enableSaveButton(arrayFieldList){
 		
 		//$("#selectField_1").change(function() {
-		document.getElementsByClassName('dropdown-label').onchange = function () {
+		document.getElementsByClassName('select').onchange = function () {
 			var isCompleted = 'True';
 			
 			if( $("#selectWorksheet").val() == null ){
