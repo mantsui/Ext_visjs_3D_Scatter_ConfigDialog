@@ -316,33 +316,14 @@
 		}
 	    }
 	    // Debug
-	    var settingsLoad = "";
-	    settingsLoad = settingsLoad + '#selectWorksheet' + ': ' + $('#selectWorksheet').val() + '\n';
-	    settingsLoad = settingsLoad + '#selectMeasure' + ': ' + $('#selectMeasure').val() + '\n';
-	    for (var index = 0; index < dimensionColumns.length; index++){
-		var SelectID = '#selectField_' + index;
-		settingsLoad = settingsLoad + SelectID  + ': ' + $(SelectID).val() + '\n';
-	    }
-	    settingsLoad = settingsLoad + '#selectColor' + ': ' + $("#selectColor").val() + '\n';
-	    if( $('#selectFilterSheet').val() != null ) {
-		    settingsLoad = settingsLoad + '#selectFilterSheet' + ': ' + $('#selectFilterSheet').val() + '\n';
-	    }
-
-	    console.log('Debug extension settings loaded: ');
+	    /*console.log('Debug extension settings loaded: ');
 	    var debugSettings = tableau.extensions.settings.getAll();
 	    for(var key in debugSettings) {
 		console.log(key, ': ', debugSettings[key]);
 	    }
 
-	    window.alert( "Debug setting values: \n" + settingsLoad );
-		  
-	    /*window.alert( "Debug setting values: \n" + $("#selectWorksheet").val() + "\n" 
-			 + "MeasureName: " + $("#selectMeasure").val() + "\n"
-			 + "FieldName_1: " + $("#selectField_1").val() + "\n"
-			 + "FieldName_2: " + $("#selectField_2").val() + "\n"
-			 + "FieldName_3: " + $("#selectField_3").val() + "\n"
-			 + "FieldName_4: " + $("#selectField_4").val() + "\n");*/
-		  
+	    window.alert( "Debug setting values: \n" + debugSettings );*/
+
 	    tableau.extensions.settings.saveAsync().then((currentSettings) => {
 	      tableau.extensions.ui.closeDialog("10");
 	    });
