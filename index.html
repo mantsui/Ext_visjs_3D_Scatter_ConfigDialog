@@ -331,7 +331,12 @@
 		}
 	    }
 	    // Debug
-	    /*window.alert( "worksheet setting value: " + $("#selectWorksheet").val() + "\n" 
+	    var settingsLoad = "";
+	    settingsLoad = settingsLoad + $("#selectWorksheet").val() + '\n';
+	    settingsLoad = settingsLoad + $("#selectMeasure").val() + '\n';
+	    window.alert( "Debug setting values: \n" + settingsLoad );
+		  
+	    /*window.alert( "Debug setting values: \n" + $("#selectWorksheet").val() + "\n" 
 			 + "MeasureName: " + $("#selectMeasure").val() + "\n"
 			 + "FieldName_1: " + $("#selectField_1").val() + "\n"
 			 + "FieldName_2: " + $("#selectField_2").val() + "\n"
