@@ -324,9 +324,8 @@
 		settingsLoad = settingsLoad + SelectID  + ': ' + $(SelectID).val() + '\n';
 	    }
 	    settingsLoad = settingsLoad + '#selectColor' + ': ' + $("#selectColor").val() + '\n';
-	    if( $(selectFilterSheet).val() != null ) {
-		    settingsLoad = settingsLoad + '#selectColor' + ': ' + $("#selectColor").val() + '\n';
-		    tableau.extensions.settings.set( "FilterSheet", $(selectFilterSheet).val() );
+	    if( $('#selectFilterSheet').val() != null ) {
+		    settingsLoad = settingsLoad + '#selectFilterSheet' + ': ' + $('#selectFilterSheet').val() + '\n';
 	    }
 		  
 	    window.alert( "Debug setting values: \n" + settingsLoad );
