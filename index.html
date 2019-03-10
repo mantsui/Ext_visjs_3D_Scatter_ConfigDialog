@@ -123,21 +123,6 @@
 	</tr>
 	    
 	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
 	<tr>
 	     <td class="option-description">
 			Honarable mention:
@@ -334,6 +319,11 @@
 	    var settingsLoad = "";
 	    settingsLoad = settingsLoad + '#selectWorksheet' + ': ' + $('#selectWorksheet').val() + '\n';
 	    settingsLoad = settingsLoad + '#selectMeasure' + ': ' + $('#selectMeasure').val() + '\n';
+	    for (var index = 0; index < dimensionColumns.length; index++){
+		var SelectID = '#selectField_' + index;
+		settingsLoad = settingsLoad + SelectID  + ': ' + $(SelectID).val() + '\n';
+	    }
+		  
 	    window.alert( "Debug setting values: \n" + settingsLoad );
 		  
 	    /*window.alert( "Debug setting values: \n" + $("#selectWorksheet").val() + "\n" 
