@@ -327,7 +327,9 @@
 	    if( $('#selectFilterSheet').val() != null ) {
 		    settingsLoad = settingsLoad + '#selectFilterSheet' + ': ' + $('#selectFilterSheet').val() + '\n';
 	    }
-		  
+
+	    console.log('Debug extension settings loaded', tableau.extensions.settings.getAll() );
+
 	    window.alert( "Debug setting values: \n" + settingsLoad );
 		  
 	    /*window.alert( "Debug setting values: \n" + $("#selectWorksheet").val() + "\n" 
