@@ -540,7 +540,9 @@
 		try {
 			element.parentNode.removeChild(element);
 		}
-		catch{}
+		catch(error){
+			console.error(error);
+		}
 	  }
 
 	})();
