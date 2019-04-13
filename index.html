@@ -300,15 +300,11 @@
 	      //clear_Prior_Filter_Dropdown_Lists(filterSheetColumns); 	// Clear prior dropdowns
 		    
 	      sumdata.columns.forEach(function (current_value) {
-		      
-		console.log('Debug current_value', current_value.fieldName);
 		if(current_value.dataType == 'string') {
 			filterSheetColumns.push(current_value.fieldName);
 		}
 	      });
 
-	      console.log('Debug worksheetName ', worksheetName);
-	      console.log('Debug filterSheetColumns ', filterSheetColumns);
 	      create_Filter_Dropdown_Lists(filterSheetColumns);
 	    });
 	  }
@@ -342,13 +338,13 @@
 		}
 	    }
 	    // Debug
-	    console.log('Debug extension settings loaded: ');
+	    /*console.log('Debug extension settings loaded: ');
 	    var debugSettings = tableau.extensions.settings.getAll();
 	    for(var key in debugSettings) {
 		console.log(key, ': ', debugSettings[key]);
 	    }
 
-	    window.alert( "Debug setting values: \n" + debugSettings );
+	    window.alert( "Debug setting values: \n" + debugSettings );*/
 
 	    tableau.extensions.settings.saveAsync().then((currentSettings) => {
 	      tableau.extensions.ui.closeDialog("10");
