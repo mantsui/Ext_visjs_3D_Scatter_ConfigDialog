@@ -300,6 +300,8 @@
 	      //clear_Prior_Filter_Dropdown_Lists(filterSheetColumns); 	// Clear prior dropdowns
 		    
 	      sumdata.columns.forEach(function (current_value) {
+		      
+		console.log('Debug current_value', current_value.fieldName);
 		if(current_value.dataType == 'string') {
 			filterSheetColumns.push(current_value.fieldName);
 		}
