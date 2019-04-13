@@ -338,13 +338,13 @@
 		}
 	    }
 	    // Debug
-	    /*console.log('Debug extension settings loaded: ');
+	    console.log('Debug extension settings loaded: ');
 	    var debugSettings = tableau.extensions.settings.getAll();
 	    for(var key in debugSettings) {
 		console.log(key, ': ', debugSettings[key]);
 	    }
 
-	    window.alert( "Debug setting values: \n" + debugSettings );*/
+	    window.alert( "Debug setting values: \n" + debugSettings );
 
 	    tableau.extensions.settings.saveAsync().then((currentSettings) => {
 	      tableau.extensions.ui.closeDialog("10");
