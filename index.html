@@ -428,12 +428,15 @@
 
 	  function RestoreExtSettings(arrayFieldList){
 		  console.log('Debug arrayFieldList: ', arrayFieldList);
+		  console.log('Debug tableau.extensions.settings.get("MeasureName")', tableau.extensions.settings.get("MeasureName"));
 		  $("#selectMeasure").val(tableau.extensions.settings.get("MeasureName"));
 		  
+		  // Try to restore established setting for color
 		  if(tableau.extensions.settings.get("chartColorScale") != null) {
 		  	$("#selectColor").val(tableau.extensions.settings.get("chartColorScale"));
 	  	  }
 		  
+		  // Try to restore established settings for dimension names.
 		  for (var index = 0; index < arrayFieldList.length; index++){
 			var SelectID = '#selectField_' + index;
 			var FieldID = 'FieldName_' + index;
