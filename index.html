@@ -256,7 +256,7 @@
 	      create_Color_Dropdown();
 
 	      // Try to restore the drop down if a value exists within the settings.
-	      RestoreExtSettings(dimensionColumns);
+	      RestoreExtSettings(dimensionColumns, PriorMeasureSelected);
 
 	      enableSaveButton(dimensionColumns);
 		    
@@ -434,9 +434,9 @@
 		}		
 	  }
 
-	  function RestoreExtSettings(arrayFieldList){
+	  function RestoreExtSettings(arrayFieldList, savedMeasure){
 		  console.log('Debug arrayFieldList: ', arrayFieldList);
-		  $("#selectMeasure").val(tableau.extensions.settings.get("MeasureName"));
+		  $("#selectMeasure").val(savedMeasure);
 		  
 		  // Try to restore established setting for color
 		  if(tableau.extensions.settings.get("chartColorScale") != null) {
