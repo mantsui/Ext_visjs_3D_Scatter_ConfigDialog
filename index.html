@@ -179,6 +179,7 @@
 	  var measureColumns = [];
 	  var dimensionColumns = [];
 	  var filterSheetColumns = [];
+	  var PriorMeasureSelected = '';
 
 	  function buildDialog() {
 	    // This gets all the worksheets within a dashboard and populates a
@@ -224,6 +225,11 @@
 	    var worksheet = worksheets.find(function (sheet) {
 	      return sheet.name === worksheetName;
 	    });
+
+	    // Track prior measure name selected before clearing step
+	    PriorMeasureSelected = tableau.extensions.settings.get('MeasureName');
+	    console.log('Debug PriorMeasureSelected: ', PriorMeasureSelected);
+		  
 	    // This now gets the summary data column names for our chosen data source.
 	    worksheet.getSummaryDataAsync({ maxRows: 1 }).then(function (sumdata) {
 	      clear_Prior_Measure_Dropdown();			// Clear prior dropdowns
@@ -430,7 +436,6 @@
 
 	  function RestoreExtSettings(arrayFieldList){
 		  console.log('Debug arrayFieldList: ', arrayFieldList);
-		  console.log('Debug tableau.extensions.settings.get("MeasureName")', tableau.extensions.settings.get("MeasureName"));
 		  $("#selectMeasure").val(tableau.extensions.settings.get("MeasureName"));
 		  
 		  // Try to restore established setting for color
