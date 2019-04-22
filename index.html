@@ -214,7 +214,8 @@
 	      // Convert Tableau data into Array of Objects to help track measure names.
 	      var Tableau_Array_of_Objects = ReduceToObjectTablulated(sumdata);
 	      console.log('DebugTableau_Array_of_Objects: ', Tableau_Array_of_Objects);		    
-		    
+	      var uniqueMeasureNames = Tableau_Array_of_Objects.from(new Set( array.map(x => x['Measure Names'] ) ));
+	      console.log('Debug uniqueMeasureNames: ', uniqueMeasureNames);
 		    
 	      sumdata.columns.forEach(function (current_value) {
 
