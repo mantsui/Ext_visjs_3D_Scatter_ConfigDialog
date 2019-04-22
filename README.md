@@ -1,3 +1,3 @@
-# Ext_D3_Treemap_ConfigDialog
+# Ext_visjs_3D_Scatter_ConfigDialog
 
-Supporting configuration dialog for Tableau Extension to draw D3 zoomable treemap chart.
+Supporting configuration dialog for Tableau Extension to draw 3-D scatterplot using vis javascript library.
