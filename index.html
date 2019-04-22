@@ -202,6 +202,8 @@
 		  
 	    // This now gets the summary data column names for our chosen data source.
 	    worksheet.getSummaryDataAsync({ maxRows: 1 }).then(function (sumdata) {
+	      console.log('Debug sumdata: ', sumdata);
+	      console.log('Debug sumdata.columns: ', sumdata.columns);
 	      clear_Prior_Measure_Dropdown();			// Clear prior dropdowns
 	      clear_Prior_Dimension_Dropdown(dimensionColumns);
 
