@@ -211,6 +211,11 @@
 	      measureColumns = [];	// Reset the array of field names
 	      dimensionColumns = [];	// Reset the array of field names
 
+	      // Convert Tableau data into Array of Objects to help track measure names.
+	      var Tableau_Array_of_Objects = ReduceToObjectTablulated(sumdata);
+	      console.log('DebugTableau_Array_of_Objects: ', Tableau_Array_of_Objects);		    
+		    
+		    
 	      sumdata.columns.forEach(function (current_value) {
 
 		if(current_value.dataType == 'float' || current_value.dataType == 'int') {
