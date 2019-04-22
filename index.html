@@ -213,24 +213,19 @@
 
 	      // Convert Tableau data into Array of Objects to help track measure names.
 	      var Tableau_Array_of_Objects = ReduceToObjectTablulated(sumdata);
-	      console.log('DebugTableau_Array_of_Objects: ', Tableau_Array_of_Objects);		    
-	      //var uniqueMeasureNames = Tableau_Array_of_Objects.from(new Set( Tableau_Array_of_Objects.map(x => x['Measure Names'] ) ));
-	      var uniqueMeasureNames = [...new Set( Tableau_Array_of_Objects.map(x => x['Measure Names'] ) )];
-	      console.log('Debug uniqueMeasureNames: ', uniqueMeasureNames);
+	      console.log('DebugTableau_Array_of_Objects: ', Tableau_Array_of_Objects);
+
+	      // Get unique list measure value names
+	      var uniqueMeasureValues = [...new Set( Tableau_Array_of_Objects.map(x => x['Measure Names'] ) )];
 		    
 	      sumdata.columns.forEach(function (current_value) {
-
-		if(current_value.dataType == 'float' || current_value.dataType == 'int') {
-			measureColumns.push(current_value.fieldName);
-		}
-
 		if(current_value.dataType == 'string') {
 			dimensionColumns.push(current_value.fieldName);
 		}
 
 	      });
 
-	      create_MeasureDropdown(measureColumns);
+	      create_MeasureDropdown(uniqueMeasureValues);
 	      create_DimensionDropdown(dimensionColumns);
 	      create_Color_Dropdown();
 
