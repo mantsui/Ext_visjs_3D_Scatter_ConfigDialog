@@ -219,7 +219,7 @@
 	      var uniqueMeasureValues = [...new Set( Tableau_Array_of_Objects.map(x => x['Measure Names'] ) )];
 		    
 	      sumdata.columns.forEach(function (current_value) {
-		if(current_value.dataType == 'string' and current_value.fieldName != 'Measure Names') {
+		if(current_value.dataType == 'string' && current_value.fieldName != 'Measure Names') {
 			dimensionColumns.push(current_value.fieldName);
 		}
 
