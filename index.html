@@ -324,8 +324,7 @@
 	    window.alert( "Debug setting values: \n" + debugSettings );*/
 
 	    tableau.extensions.settings.saveAsync().then((currentSettings) => {
-	      tableau.extensions.ui.closeDialog("10");
-	    });
+	      tableau.extensions.ui.c3  });
 	  }
 
 	  function addElement(parentId, elementTag, elementClass, elementId, html) {
@@ -339,27 +338,31 @@
 	  }
 
 	  function create_MeasureDropdown(measureList){
-		var RowID = 'MeasureRowID_0';
-		var SecondDivID = 'MeasureSecondDivID_0';
-		var ListID = 'MeasureDropdown_0';
-		var SelectID = 'selectMeasureField_0';  
+		  for (var index = 0; index < 3; index++){
+			var RowID = 'MeasureRowID_0';
+			var SecondDivID = 'MeasureSecondDivID_0';
+			var ListID = 'MeasureDropdown_0';
+			var SelectID = 'selectMeasureField_0';  
 
-		addElement('configContainer','div','row',RowID,'');
-		addElement(RowID,'div','col-md-6 col-xs-6',SecondDivID,'');		  
-		addElement(SecondDivID,'span','dropdown-label',ListID,'Select Measure');
-		addElement(ListID,'select','select','selectMeasure','');
-		$('#selectMeasure').append('<option disabled selected="selected">-- None Selected --</option>');
-		$('#' + SecondDivID).css('color', 'red');
-		$('#selectMeasure').css('color', 'red');
+			addElement('configContainer','div','row',RowID,'');
+			addElement(RowID,'div','col-md-6 col-xs-6',SecondDivID,'');		  
+			addElement(SecondDivID,'span','dropdown-label',ListID,'Select Measure');
+			//addElement(ListID,'select','select','selectMeasure','');
+			//$('#selectMeasure').append('<option disabled selected="selected">-- None Selected --</option>');
+			addElement(ListID,'select','select',SelectID,'');
+			$('#' + SelectID).append('<option disabled selected="selected">-- None Selected --</option>');
+			$('#' + SecondDivID).css('color', 'red');
+			$('#selectMeasure').css('color', 'red');
 
-		measureList.forEach(function(currentValue){
-			$('#selectMeasure').append("<option value='" + currentValue + "'>" + currentValue + "</option>");
-		});
+			measureList.forEach(function(currentValue){
+				$('#selectMeasure').append("<option value='" + currentValue + "'>" + currentValue + "</option>");
+			});
+		  }
 	  }
 
 	  function create_DimensionDropdown(arrayFieldList){
 
-		for (var index = 0; index < arrayFieldList.length; index++){
+		for (var index = 0; index < arrayFieldList.length; inSelectIDdex++){
 			
 			var RowID = 'RowID_' + index;
 			var SecondDivID = 'SecondDivID_' + index;
