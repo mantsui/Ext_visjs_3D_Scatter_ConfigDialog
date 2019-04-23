@@ -352,10 +352,10 @@
 			addElement(ListID,'select','select',SelectID,'');
 			$('#' + SelectID).append('<option disabled selected="selected">-- None Selected --</option>');
 			$('#' + SecondDivID).css('color', 'red');
-			$('#selectMeasure').css('color', 'red');
+			//$('#selectMeasure').css('color', 'red');
 
 			measureList.forEach(function(currentValue){
-				$('#selectMeasure').append("<option value='" + currentValue + "'>" + currentValue + "</option>");
+				$('#' + SelectID).append("<option value='" + currentValue + "'>" + currentValue + "</option>");
 			});
 		  }
 	  }
