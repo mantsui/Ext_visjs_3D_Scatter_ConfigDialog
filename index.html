@@ -339,14 +339,14 @@
 
 	  function create_MeasureDropdown(measureList){
 		  for (var index = 0; index < 3; index++){
-			var RowID = 'MeasureRowID_0';
-			var SecondDivID = 'MeasureSecondDivID_0';
-			var ListID = 'MeasureDropdown_0';
-			var SelectID = 'selectMeasureField_0';  
+			var RowID = 'MeasureRowID_' + index;
+			var SecondDivID = 'MeasureSecondDivID_' + index;
+			var ListID = 'MeasureDropdown_' + index;
+			var SelectID = 'selectMeasureField_' + index;
 
 			addElement('configContainer','div','row',RowID,'');
 			addElement(RowID,'div','col-md-6 col-xs-6',SecondDivID,'');		  
-			addElement(SecondDivID,'span','dropdown-label',ListID,'Select Measure');
+			addElement(SecondDivID,'span','dropdown-label',ListID,'Select Measure # ' + (index + 1));
 			//addElement(ListID,'select','select','selectMeasure','');
 			//$('#selectMeasure').append('<option disabled selected="selected">-- None Selected --</option>');
 			addElement(ListID,'select','select',SelectID,'');
