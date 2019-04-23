@@ -295,7 +295,9 @@
 	    // On clicking save, we save the following settings.
 	    tableau.extensions.settings.set("worksheet", $("#selectWorksheet").val());
 	    tableau.extensions.settings.set("chartColorScale", $("#selectColor").val());
-	    tableau.extensions.settings.set("MeasureName", $("#selectMeasure").val());
+	    tableau.extensions.settings.set("MeasureName_0", $("#selectMeasure_0").val());
+	    tableau.extensions.settings.set("MeasureName_1", $("#selectMeasure_1").val());
+	    tableau.extensions.settings.set("MeasureName_2", $("#selectMeasure_2").val());
 
 	    for (var index = 0; index < dimensionColumns.length; index++){
 		var SelectID = '#selectField_' + index;
@@ -315,13 +317,13 @@
 		}
 	    }
 	    // Debug
-	    /*console.log('Debug extension settings loaded: ');
+	    console.log('Debug extension settings loaded: ');
 	    var debugSettings = tableau.extensions.settings.getAll();
 	    for(var key in debugSettings) {
 		console.log(key, ': ', debugSettings[key]);
 	    }
 
-	    window.alert( "Debug setting values: \n" + debugSettings );*/
+	    window.alert( "Debug setting values: \n" + debugSettings );
 
 	    tableau.extensions.settings.saveAsync().then((currentSettings) => {
 	      tableau.extensions.ui.c3  });
@@ -522,7 +524,15 @@
 				isCompleted = 'False';
 			}
 			
-			if( $("#selectMeasure").val() == null ){
+			if( $("#selectMeasureField_0").val() == null ){
+				isCompleted = 'False';
+			}
+			
+			if( $("#selectMeasureField_1").val() == null ){
+				isCompleted = 'False';
+			}
+			
+			if( $("#selectMeasureField_2").val() == null ){
 				isCompleted = 'False';
 			}
 
