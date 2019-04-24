@@ -204,8 +204,9 @@
 	    worksheet.getSummaryDataAsync({ maxRows: 1 }).then(function (sumdata) {
 	      console.log('Debug sumdata: ', sumdata);
 	      console.log('Debug sumdata.columns: ', sumdata.columns);
-	      clear_Prior_Measure_Dropdown();			// Clear prior dropdowns
-	      clear_Prior_Dimension_Dropdown(dimensionColumns);
+	      // 04.29.19 Temp comment out
+	      //clear_Prior_Measure_Dropdown();			// Clear prior dropdowns
+	      //clear_Prior_Dimension_Dropdown(dimensionColumns);
 
 	      worksheetColumns = [];	// Reset the array of field names
 	      measureColumns = [];	// Reset the array of field names
