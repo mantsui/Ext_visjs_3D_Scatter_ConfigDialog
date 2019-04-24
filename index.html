@@ -327,15 +327,22 @@
 	    }
 	    // Debug
 	    console.log('Debug extension settings loaded: ');
-	    var debugSettings = tableau.extensions.settings.getAll();
-	    for(var key in debugSettings) {
-		console.log(key, ': ', debugSettings[key]);
-	    }
-
-	    window.alert( "Debug setting values: \n" + debugSettings );
+	    DebugSaveSettings();
 
 	    tableau.extensions.settings.saveAsync().then((currentSettings) => {
 	      tableau.extensions.ui.c3  });
+	  }
+
+	  function DebugSaveSettings() {
+		var debugSettings = tableau.extensions.settings.getAll();
+		var strOutput = '';
+		for(var key in debugSettings) {
+			console.log(key, ': ', debugSettings[key]);
+			strOutput += key + ': ' + debugSettings[key];
+			strOutput += '\n';
+		}
+
+		window.alert( "Debug setting values: \n" + strOutput );
 	  }
 
 	  function addElement(parentId, elementTag, elementClass, elementId, html) {
