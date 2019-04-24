@@ -239,15 +239,6 @@
 		console.log('Checking...');
 		var isCompleted = 'True';
 		
-		console.log('Debug $("#selectWorksheet").val(): ', $("#selectWorksheet").val());
-		console.log('Debug $("#selectMeasureField_0").val(): ', $("#selectMeasureField_0").val());
-		console.log('Debug $("#selectMeasureField_1").val(): ', $("#selectMeasureField_1").val());
-		console.log('Debug $("#selectMeasureField_2").val(): ', $("#selectMeasureField_2").val());
-		console.log('Debug $("#selectField_0").val(): ', $("#selectField_0").val());
-		console.log('Debug $("#selectField_1").val(): ', $("#selectField_1").val());
-		console.log('Debug $("#selectField_2").val(): ', $("#selectField_2").val());
-
-
 		if( $("#selectWorksheet").val() == null ){
 			isCompleted = 'False';
 		}
@@ -313,9 +304,9 @@
 	    // On clicking save, we save the following settings.
 	    tableau.extensions.settings.set("worksheet", $("#selectWorksheet").val());
 	    tableau.extensions.settings.set("chartColorScale", $("#selectColor").val());
-	    tableau.extensions.settings.set("MeasureName_0", $("#selectMeasure_0").val());
-	    tableau.extensions.settings.set("MeasureName_1", $("#selectMeasure_1").val());
-	    tableau.extensions.settings.set("MeasureName_2", $("#selectMeasure_2").val());
+	    tableau.extensions.settings.set("MeasureName_0", $("#selectMeasureField_0").val());
+	    tableau.extensions.settings.set("MeasureName_1", $("#selectMeasureField_1").val());
+	    tableau.extensions.settings.set("MeasureName_2", $("#selectMeasureField_2").val());
 
 	    for (var index = 0; index < dimensionColumns.length; index++){
 		var SelectID = '#selectField_' + index;
