@@ -238,6 +238,15 @@
 	      $('.select').on('change', function () {
 		console.log('Checking...');
 		var isCompleted = 'True';
+		
+		console.log('Debug $("#selectWorksheet").val(): ', $("#selectWorksheet").val());
+		console.log('Debug $("#selectMeasure_0").val(): ', $("#selectMeasure_0").val());
+		console.log('Debug $("#selectMeasure_1").val(): ', $("#selectMeasure_1").val());
+		console.log('Debug $("#selectMeasure_2").val(): ', $("#selectMeasure_2").val());
+		console.log('Debug $("#selectField_0").val(): ', $("#selectField_0").val());
+		console.log('Debug $("#selectField_1").val(): ', $("#selectField_1").val());
+		console.log('Debug $("#selectField_2").val(): ', $("#selectField_2").val());
+
 
 		if( $("#selectWorksheet").val() == null ){
 			isCompleted = 'False';
