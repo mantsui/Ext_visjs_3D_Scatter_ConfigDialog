@@ -325,9 +325,7 @@
 			tableau.extensions.settings.set(FilterFieldID, $(SelectFilterID).val());
 		}
 	    }
-	    // Debug
-	    console.log('Debug extension settings loaded: ');
-	    DebugSaveSettings();
+	    //DebugSaveSettings();
 
 	    tableau.extensions.settings.saveAsync().then((currentSettings) => {
 	      tableau.extensions.ui.c3  });
