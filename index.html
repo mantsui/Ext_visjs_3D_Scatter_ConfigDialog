@@ -328,7 +328,8 @@
 	    //DebugSaveSettings();
 
 	    tableau.extensions.settings.saveAsync().then((currentSettings) => {
-	      tableau.extensions.ui.c3  });
+	      tableau.extensions.ui.closeDialog("10");
+	    });
 	  }
 
 	  function DebugSaveSettings() {
@@ -435,8 +436,8 @@
 		  for (var index = 0; index < arrayFieldList.length; index++){
 			var SelectID = '#selectField_' + index;
 			var FieldID = 'FieldName_' + index;
-			console.log('Debug SelectID: ', SelectID);
-			console.log('Debug FieldID: ', FieldID);
+			//console.log('Debug SelectID: ', SelectID);
+			//console.log('Debug FieldID: ', FieldID);
 			$(SelectID).val(tableau.extensions.settings.get(FieldID));
 		  }
 	  }
