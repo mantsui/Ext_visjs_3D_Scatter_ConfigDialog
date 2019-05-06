@@ -335,7 +335,7 @@
 			tableau.extensions.settings.set(FilterFieldID, $(SelectFilterID).val());
 		}
 	    }
-	    //DebugSaveSettings();
+	    DebugSaveSettings();
 
 	    tableau.extensions.settings.saveAsync().then((currentSettings) => {
 	      tableau.extensions.ui.closeDialog("10");
