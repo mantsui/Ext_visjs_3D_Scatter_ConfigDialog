@@ -55,13 +55,6 @@
 	</div>
     </div>
 
-    <div id="selectColorContainer" class="row">
-	<div class="col-md-6 col-xs-6">
-	     <span class="dropdown-label">Optional: Select Color</span>
-		<select id="selectColor" class="select"></select>
-	</div>
-    </div>
-
     <div id="selectFilterSheetDiv" class="row">
         <div class="col-md-6 col-xs-6">
              <span class="dropdown-label">Optional: Target Filter Sheet</span>
@@ -284,8 +277,6 @@
 		}
 	      });
 
-	      //console.log('("#selectValue").val()');
-	      //console.log($("#selectMeasure").val());
 	    });
 	  }
 
@@ -458,16 +449,6 @@
 			var FieldID = 'FieldName_' + index;
 			$(SelectID).val(tableau.extensions.settings.get(FieldID));
 		  }
-	  }
-
-	  function create_Color_Dropdown(){
-		var arrColorScale =['Brown_BrightGreen', 'Purple_Green', 'Pink_YellowGreen', 'Purple_Orange', 'Red_Blue', 'Red_Grey', 'Red_Yellow_LightBlue', 'Red_Yellow_LightGreen', 'Spectral', 'Blues', 'Greens', 'Greys', 'Oranges', 'Purples', 'Reds', 'Viridis', 'Inferno', 'Magma', 'Plasma', 'Warm', 'Cool', 'Cube_Helix', 'Blue_Green', 'Blue_Purple', 'Green_Blue', 'Orange_Red', 'Purple_Blue_Green', 'Purple_Blue', 'Purple_Red', 'Red_Purple', 'Yellow_Green_Blue', 'Yellow_Green', 'Yellow_Orange_Brown', 'Yellow_Orange_Red', 'Rainbow', 'Sinebow', 'schemeSet3'];
-
-		arrColorScale.forEach(function(currentValue){
-			$('#selectColor').append("<option value='" + currentValue + "'>" + currentValue + "</option>");
-		});
-
-		$('#selectColor').val('schemeSet3'); // Set default color
 	  }
 
 	  function clear_Prior_Measure_Dropdown(){
