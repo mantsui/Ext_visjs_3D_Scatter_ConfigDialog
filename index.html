@@ -243,7 +243,8 @@
 		    
 	      $('.select').on('change', function () {
 		console.log('Checking...');
-		var isCompleted = 'True';
+		enableSaveButton();
+		/*var isCompleted = 'True';
 		
 		if( $("#selectWorksheet").val() == null ){
 			isCompleted = 'False';
@@ -267,7 +268,7 @@
 
 		if( isCompleted == 'True' ){
 			$("#save").prop('disabled', false);	// Enable save button
-		}
+		}*/
 	      });
 
 	    });
@@ -449,6 +450,8 @@
 			//$(SelectID).val(tableau.extensions.settings.get(FieldID));
 			$(SelectID).val(Ordered_Dimensions[index]);
 		  }
+		  
+		  enableSaveButton();
 	  }
 
 	  function clear_Prior_Measure_Dropdown(){
@@ -529,34 +532,26 @@
 	  }
 
 	  function enableSaveButton(){
-		
-		document.getElementsByClassName('select').onchange = function () {
-			var isCompleted = 'True';
-			
-			if( $("#selectWorksheet").val() == null ){
-				isCompleted = 'False';
-			}
-			
-			if( $("#selectMeasureField_0").val() == null ){
-				isCompleted = 'False';
-			}
-			
-			if( $("#selectMeasureField_1").val() == null ){
-				isCompleted = 'False';
-			}
-			
-			if( $("#selectMeasureField_2").val() == null ){
-				isCompleted = 'False';
-			}
+		var isCompleted = 'True';
 
-			if( $("#selectField_0").val() == null ){
-				isCompleted = 'False';
-			}
-						
-			if( isCompleted == 'True' ){
-				$("#save").prop('disabled', false);	// Enable save button
-			}
-		};
+		if( $("#selectWorksheet").val() == null ){
+			isCompleted = 'False';
+		}
+		if( $("#selectMeasureField_0").val() == null ){
+			isCompleted = 'False';
+		}
+		if( $("#selectMeasureField_1").val() == null ){
+			isCompleted = 'False';
+		}
+		if( $("#selectMeasureField_2").val() == null ){
+			isCompleted = 'False';
+		}
+		if( $("#selectField_0").val() == null ){
+			isCompleted = 'False';
+		}
+		if( isCompleted == 'True' ){
+			$("#save").prop('disabled', false);	// Enable save button
+		}
 	  }
 
 	  function removeElement(elementId) {
