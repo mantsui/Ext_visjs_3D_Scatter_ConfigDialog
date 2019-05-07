@@ -261,12 +261,8 @@
 			isCompleted = 'False';
 		}
 
-		// Check to see all Dimension dropdowns have been completed.
-		for (var index = 0; index < dimensionColumns.length; index++){
-			var SelectID = '#selectField_' + index;
-			if( $(SelectID).val() == null ){
-				isCompleted = 'False';
-			}
+		if( $("#selectField_0").val() == null ){
+			isCompleted = 'False';
 		}
 
 		if( isCompleted == 'True' ){
@@ -532,9 +528,8 @@
 
 	  }
 
-	  function enableSaveButton(arrayFieldList){
+	  function enableSaveButton(){
 		
-		//$("#selectField_1").change(function() {
 		document.getElementsByClassName('select').onchange = function () {
 			var isCompleted = 'True';
 			
@@ -554,14 +549,10 @@
 				isCompleted = 'False';
 			}
 
-			// Check to see all Dimension dropdowns have been completed.
-			for (var index = 0; index < arrayFieldList.length; index++){
-				var SelectID = '#selectField_' + index;
-				if( $(SelectID).val() == null ){
-					isCompleted = 'False';
-				}
+			if( $("#selectField_0").val() == null ){
+				isCompleted = 'False';
 			}
-			
+						
 			if( isCompleted == 'True' ){
 				$("#save").prop('disabled', false);	// Enable save button
 			}
