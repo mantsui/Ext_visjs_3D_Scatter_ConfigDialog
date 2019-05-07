@@ -168,9 +168,7 @@
 	      $("#selectWorksheet").append("<option value='" + worksheet.name + "'>" + worksheet.name + "</option>");
 	      $("#selectFilterSheet").append("<option value='" + worksheet.name + "'>" + worksheet.name + "</option>");
 	    });
-
-	    console.log('Debug tableau.extensions.settings.getAll()', tableau.extensions.settings.getAll());
-
+		  
 	    // Disable Save Button until minimum form requirement is met
 	    defaultDisableSaveButton();
 
@@ -433,8 +431,13 @@
 	  }
 
 	  function RestoreExtSettings(arrayFieldList, savedMeasure){
+		  var prior_Ext_Settings = tableau.extensions.settings.getAll();
+		  console.log('prior_Ext_Settings: ', prior_Ext_Settings);
 		  console.log('Debug arrayFieldList: ', arrayFieldList);
-		  $("#selectMeasure").val(savedMeasure);
+		  //$("#selectMeasure").val(savedMeasure);
+		  //$("#selectMeasure").val(savedMeasure);
+		  //$("#selectMeasure").val(savedMeasure);
+		  //$("#selectMeasure").val(savedMeasure);
 		  
 		  // Try to restore established setting for color
 		  if(tableau.extensions.settings.get("chartColorScale") != null) {
