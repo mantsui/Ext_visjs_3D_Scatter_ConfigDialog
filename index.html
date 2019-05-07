@@ -435,21 +435,23 @@
 		  console.log('prior_Ext_Settings: ', prior_Ext_Settings);
 		  //console.log('prior_Ext_Settings[MeasureName_0]: ', prior_Ext_Settings['MeasureName_0']);
 		  console.log('Debug arrayFieldList: ', arrayFieldList);
-		  //$("#selectMeasure").val(savedMeasure);
 		  $("#selectMeasureField_0").val(prior_Ext_Settings['MeasureName_0']);
 		  $("#selectMeasureField_1").val(prior_Ext_Settings['MeasureName_1']);
 		  $("#selectMeasureField_2").val(prior_Ext_Settings['MeasureName_2']);
-		  
-		  // Try to restore established setting for color
-		  if(tableau.extensions.settings.get("chartColorScale") != null) {
-		  	$("#selectColor").val(tableau.extensions.settings.get("chartColorScale"));
-	  	  }
-		  
+
+		  var Ordered_Dimensions = [];
+		  for(var key in prior_Ext_Settings) {
+			var value = prior_Ext_Settings[key];
+			if (key.startsWith('FieldName_')){
+				Ordered_Dimensions.push(value);
+			}
+		  }		  
 		  // Try to restore established settings for dimension names.
 		  for (var index = 0; index < arrayFieldList.length; index++){
 			var SelectID = '#selectField_' + index;
 			var FieldID = 'FieldName_' + index;
-			$(SelectID).val(tableau.extensions.settings.get(FieldID));
+			//$(SelectID).val(tableau.extensions.settings.get(FieldID));
+			$(SelectID).val(Ordered_Dimensions[index]);
 		  }
 	  }
 
