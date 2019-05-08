@@ -424,7 +424,7 @@
 
 	  function clear_Prior_Measure_Dropdown(){
 
-		for (var index = 0; index < 3; index++){
+		for (var index = 0; ($('#' + SelectID).length > 0); index++){
 			console.log('clear_Prior_Measure_Dropdown(): ', index);
 			var RowID = 'MeasureRowID_' + index;
 			var SecondDivID = 'MeasureSecondDivID_' + index;
