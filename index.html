@@ -423,7 +423,6 @@
 	  }
 
 	  function clear_Prior_Measure_Dropdown(){
-
 		for (var index = 0; ($('#' + SelectID).length > 0); index++){
 			console.log('clear_Prior_Measure_Dropdown(): ', index);
 			var RowID = 'MeasureRowID_' + index;
@@ -440,26 +439,7 @@
 				removeElement(SecondDivID);
 				removeElement(RowID);
 			}
-			//addElement('configContainer','div','row',RowID,'');
-			//addElement(RowID,'div','col-md-6 col-xs-6',SecondDivID,'');		  
-			//addElement(SecondDivID,'span','dropdown-label',ListID,'Select Measure # ' + (index + 1));
-			//addElement(ListID,'select','select',SelectID,'');
-			//$('#' + SelectID).append('<option disabled selected="selected">-- None Selected --</option>');
-			//$('#' + SecondDivID).css('color', 'red');
-			//measureList.forEach(function(currentValue){
-				//$('#' + SelectID).append("<option value='" + currentValue + "'>" + currentValue + "</option>");
-			//});
 		}
-		//var RowID = 'MeasureRowID_0';
-		//var SecondDivID = 'MeasureSecondDivID_0';
-		//var ListID = 'MeasureDropdown_0';
-
-		//$("#selectMeasure").text("");	// Reset html tag
-		//removeElement('selectMeasure');	// Delete previous configuration.
-		//tableau.extensions.settings.erase("MeasureName")// Delete Tableau extension key-pair settings
-		//removeElement(ListID);
-		//removeElement(SecondDivID);
-		//removeElement(RowID);
 	  }
 
 	  function clear_Prior_Dimension_Dropdown(arrayFieldList){
