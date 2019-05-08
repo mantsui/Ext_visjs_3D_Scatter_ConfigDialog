@@ -237,38 +237,11 @@
 	      create_DimensionDropdown(dimensionColumns);
 
 	      // Try to restore the drop down if a value exists within the settings.
-	      RestoreExtSettings(dimensionColumns, PriorMeasureSelected);
-
-	      //enableSaveButton(dimensionColumns); 04.24.19 Temp comment out
+	      RestoreExtSettings();
 		    
 	      $('.select').on('change', function () {
 		console.log('Checking...');
 		enableSaveButton();
-		/*var isCompleted = 'True';
-		
-		if( $("#selectWorksheet").val() == null ){
-			isCompleted = 'False';
-		}
-
-		if( $("#selectMeasureField_0").val() == null ){
-			isCompleted = 'False';
-		}
-
-		if( $("#selectMeasureField_1").val() == null ){
-			isCompleted = 'False';
-		}
-
-		if( $("#selectMeasureField_2").val() == null ){
-			isCompleted = 'False';
-		}
-
-		if( $("#selectField_0").val() == null ){
-			isCompleted = 'False';
-		}
-
-		if( isCompleted == 'True' ){
-			$("#save").prop('disabled', false);	// Enable save button
-		}*/
 	      });
 
 	    });
@@ -368,12 +341,9 @@
 			addElement('configContainer','div','row',RowID,'');
 			addElement(RowID,'div','col-md-6 col-xs-6',SecondDivID,'');		  
 			addElement(SecondDivID,'span','dropdown-label',ListID,'Select Measure # ' + (index + 1));
-			//addElement(ListID,'select','select','selectMeasure','');
-			//$('#selectMeasure').append('<option disabled selected="selected">-- None Selected --</option>');
 			addElement(ListID,'select','select',SelectID,'');
 			$('#' + SelectID).append('<option disabled selected="selected">-- None Selected --</option>');
 			$('#' + SecondDivID).css('color', 'red');
-			//$('#selectMeasure').css('color', 'red');
 
 			measureList.forEach(function(currentValue){
 				$('#' + SelectID).append("<option value='" + currentValue + "'>" + currentValue + "</option>");
@@ -427,11 +397,8 @@
 		}		
 	  }
 
-	  function RestoreExtSettings(arrayFieldList, savedMeasure){
+	  function RestoreExtSettings(){
 		  var prior_Ext_Settings = tableau.extensions.settings.getAll();
-		  console.log('prior_Ext_Settings: ', prior_Ext_Settings);
-		  //console.log('prior_Ext_Settings[MeasureName_0]: ', prior_Ext_Settings['MeasureName_0']);
-		  console.log('Debug arrayFieldList: ', arrayFieldList);
 		  $("#selectMeasureField_0").val(prior_Ext_Settings['MeasureName_0']);
 		  $("#selectMeasureField_1").val(prior_Ext_Settings['MeasureName_1']);
 		  $("#selectMeasureField_2").val(prior_Ext_Settings['MeasureName_2']);
@@ -442,12 +409,12 @@
 			if (key.startsWith('FieldName_')){
 				Ordered_Dimensions.push(value);
 			}
-		  }		  
+		  }
+
 		  // Try to restore established settings for dimension names.
 		  for (var index = 0; index < arrayFieldList.length; index++){
 			var SelectID = '#selectField_' + index;
 			var FieldID = 'FieldName_' + index;
-			//$(SelectID).val(tableau.extensions.settings.get(FieldID));
 			$(SelectID).val(Ordered_Dimensions[index]);
 		  }
 		  
