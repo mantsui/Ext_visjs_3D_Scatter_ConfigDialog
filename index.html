@@ -433,6 +433,12 @@
 			
 			if($('#' + SelectID).length > 0){
 				console.log('#' + SelectID + ' element exist');
+				
+				$("#" + SelectID).text("");	// Reset html tag and delete previous configuration.
+				removeElement(SelectID);	// Delete previous configuration.
+				removeElement(ListID);
+				removeElement(SecondDivID);
+				removeElement(RowID);
 			}
 			//addElement('configContainer','div','row',RowID,'');
 			//addElement(RowID,'div','col-md-6 col-xs-6',SecondDivID,'');		  
