@@ -444,15 +444,17 @@
 	  }
 
 	  function clear_Prior_Dimension_Dropdown(arrayFieldList){
-		for (var index = 0; index < arrayFieldList.length; index++){
+		var SelectID = 'selectField_';
+		for (var index = 0; ($('#' + SelectID + index).length > 0); index++){
+		//for (var index = 0; index < arrayFieldList.length; index++){
 			var RowID = 'RowID_' + index;
 			var SecondDivID = 'SecondDivID_' + index;
 			var ListID = 'Dropdown_' + index;
-			var SelectID = 'selectField_' + index;
+			//var SelectID = 'selectField_' + index;
 			var FieldIndex = 'FieldName_' + index;
 			
-			$("#" + SelectID).text("");	// Reset html tag and delete previous configuration.
-			removeElement(SelectID);	// Delete previous configuration.
+			$("#" + SelectID + index).text("");	// Reset html tag and delete previous configuration.
+			removeElement(SelectID + index);	// Delete previous configuration.
 			tableau.extensions.settings.erase(FieldIndex)	// Delete Tableau extension key-pair settings
 			removeElement(ListID);
 			removeElement(SecondDivID);
