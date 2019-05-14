@@ -377,6 +377,7 @@
 	  }
 
 	  function create_FilterChange_Dropdown_Lists(arrayFieldList){
+		console.log('create_FilterChange_Dropdown_Lists arrayFieldList: ', arrayFieldList);
 
 		for (var index = 0; index < arrayFieldList.length; index++){
 			
@@ -388,7 +389,7 @@
 			//addElement(parentId, elementTag, elementClass, elementId, html)
 			addElement('selectFilterChangeContainer','div','row',RowID,'');
 			addElement(RowID,'div','col-md-6 col-xs-6',SecondDivID,'');
-			addElement(SecondDivID,'span','dropdown-label',ListID,'Optional: Filter Column #' + index);
+			addElement(SecondDivID,'span','dropdown-label',ListID,'Optional: Filter Change Column #' + index);
 			addElement(ListID,'select','select',SelectID,'');
 			$('#' + SelectID).append('<option disabled selected="selected">-- None Selected --</option>');
 
