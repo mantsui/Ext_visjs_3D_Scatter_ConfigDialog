@@ -262,7 +262,7 @@
 	      //clear_Prior_Filter_Dropdown_Lists(filterSheetColumns); 	// Clear prior dropdowns
 		    
 	      sumdata.columns.forEach(function (current_value) {
-		if(current_value.dataType == 'string') {
+		if(current_value.dataType == 'string' && current_value.fieldName != 'Measure Names') {
 			filterChangeSheetColumns.push(current_value.fieldName);
 		}
 	      });
@@ -292,8 +292,8 @@
 		tableau.extensions.settings.set(FieldID, $(SelectID).val());
 	    }
 
-	    if( $(selectFilterSheet).val() != null ) {
-		    tableau.extensions.settings.set( "FilterSheet", $(selectFilterSheet).val() );
+	    if( $(selectFilterChangeSheet).val() != null ) {
+		    tableau.extensions.settings.set( "FilterChangeSheet", $(selectFilterChangeSheet).val() );
 	    }
 
 	    for (var index = 0; index < filterChangeSheetColumns.length; index++){
