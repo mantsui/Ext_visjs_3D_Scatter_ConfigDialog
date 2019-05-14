@@ -55,10 +55,10 @@
 	</div>
     </div>
 
-    <div id="selectFilterSheetDiv" class="row">
+    <div id="selectFilterChangeSheetDiv" class="row">
         <div class="col-md-6 col-xs-6">
-             <span class="dropdown-label">Optional: Target Filter Sheet</span>
-                <select id="selectFilterSheet" class="select">
+             <span class="dropdown-label">Optional: Target Filter Change Sheet</span>
+                <select id="selectFilterChangeSheet" class="select">
                     <option disabled selected="selected"> None Selected </option>
                 </select>
         </div>
@@ -187,8 +187,8 @@
 	      columnsUpdate();
 	    });
 
-	    $('#selectFilterSheet').on('change', '', function (e) {
-	      filterColumnsUpdate();
+	    $('#selectFilterChangeSheet').on('change', '', function (e) {
+	      filterChangeColumnsUpdate();
 	    });
 
 	    $('#cancel').click(closeDialog);
@@ -248,14 +248,14 @@
 	    });
 	  }
 
-	  function filterColumnsUpdate() {
+	  function filterChangeColumnsUpdate() {
 	    // This gets the worksheet object from the drop down.
 	    var worksheets = tableau.extensions.dashboardContent.dashboard.worksheets;
-	    var worksheetName = $("#selectFilterSheet").val();
+	    var worksheetName = $("#selectFilterChangeSheet").val();
 	    var worksheet = worksheets.find(function (sheet) {
 	      return sheet.name === worksheetName;
 	    });
-	    filterSheetColumns = []; 	// Reset the array of field names
+	    filterChangeSheetColumns = []; 	// Reset the array of field names
 		  
 	    // This now gets the summary data column names for our chosen data source.
 	    worksheet.getSummaryDataAsync({ maxRows: 1 }).then(function (sumdata) {
@@ -263,11 +263,11 @@
 		    
 	      sumdata.columns.forEach(function (current_value) {
 		if(current_value.dataType == 'string') {
-			filterSheetColumns.push(current_value.fieldName);
+			filterChangeSheetColumns.push(current_value.fieldName);
 		}
 	      });
 
-	      create_Filter_Dropdown_Lists(filterSheetColumns);
+	      create_FilterChange_Dropdown_Lists(filterChangeSheetColumns);
 	    });
 	  }
 
@@ -296,14 +296,14 @@
 		    tableau.extensions.settings.set( "FilterSheet", $(selectFilterSheet).val() );
 	    }
 
-	    for (var index = 0; index < filterSheetColumns.length; index++){
-		var SelectFilterID = '#selectFilterField_' + index;
-		var FilterFieldID = 'FilterFieldName_' + index;
-		if( $(SelectFilterID).val() != null ) {
-			tableau.extensions.settings.set(FilterFieldID, $(SelectFilterID).val());
+	    for (var index = 0; index < filterChangeSheetColumns.length; index++){
+		var SelectFilterChangeID = '#selectFilterChangeField_' + index;
+		var FilterChangeFieldID = 'FilterChangeFieldName_' + index;
+		if( $(SelectFilterChangeID).val() != null ) {
+			tableau.extensions.settings.set(FilterChangeFieldID, $(SelectFilterChangeID).val());
 		}
 	    }
-	    //DebugSaveSettings();
+	    DebugSaveSettings();
 
 	    tableau.extensions.settings.saveAsync().then((currentSettings) => {
 	      tableau.extensions.ui.closeDialog("10");
@@ -376,17 +376,17 @@
 		}		
 	  }
 
-	  function create_Filter_Dropdown_Lists(arrayFieldList){
+	  function create_FilterChange_Dropdown_Lists(arrayFieldList){
 
 		for (var index = 0; index < arrayFieldList.length; index++){
 			
-			var RowID = 'FilterRowID_' + index;
-			var SecondDivID = 'FilterSecondDivID_' + index;
-			var ListID = 'FilterDropdown_' + index;
-			var SelectID = 'selectFilterField_' + index;
+			var RowID = 'FilterChangeRowID_' + index;
+			var SecondDivID = 'FilterChangeSecondDivID_' + index;
+			var ListID = 'FilterChangeDropdown_' + index;
+			var SelectID = 'selectFilterChangeField_' + index;
 
 			//addElement(parentId, elementTag, elementClass, elementId, html)
-			addElement('selectFiltersContainer','div','row',RowID,'');
+			addElement('selectFilterChangeContainer','div','row',RowID,'');
 			addElement(RowID,'div','col-md-6 col-xs-6',SecondDivID,'');
 			addElement(SecondDivID,'span','dropdown-label',ListID,'Optional: Filter Column #' + index);
 			addElement(ListID,'select','select',SelectID,'');
