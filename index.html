@@ -213,8 +213,9 @@
 	      console.log('Debug sumdata: ', sumdata);
 	      console.log('Debug sumdata.columns: ', sumdata.columns);
 	      // 04.29.19 Temp comment out
-	      clear_Prior_Measure_Dropdown();			// Clear prior dropdowns
-	      clear_Prior_Dimension_Dropdown(dimensionColumns);
+	      clear_Prior_Measure_Dropdown();		// Clear prior dropdowns
+	      clear_Prior_Dimension_Dropdown();
+	      clear_Prior_FilterChange_Dropdown_Lists();
 
 	      worksheetColumns = [];	// Reset the array of field names
 	      measureColumns = [];	// Reset the array of field names
@@ -434,6 +435,8 @@
 
 	  function clear_Prior_Measure_Dropdown(){
 		var SelectID = 'selectMeasureField_';
+
+		// Looping to look for html tags by specific element ID pattern.
 		for (var index = 0; ($('#' + SelectID + index).length > 0); index++){
 			console.log('clear_Prior_Measure_Dropdown(): ', index);
 			var RowID = 'MeasureRowID_' + index;
@@ -454,6 +457,8 @@
 
 	  function clear_Prior_Dimension_Dropdown(arrayFieldList){
 		var SelectID = 'selectField_';
+
+		// Looping to look for html tags by specific element ID pattern.
 		for (var index = 0; ($('#' + SelectID + index).length > 0); index++){
 			var RowID = 'RowID_' + index;
 			var SecondDivID = 'SecondDivID_' + index;
@@ -469,16 +474,19 @@
 		}
 	  }
 
-	  function clear_Prior_Filter_Dropdown_Lists(arrayFieldList){
-		for (var index = 0; index < arrayFieldList.length; index++){
-			var RowID = 'FilterRowID_' + index;
-			var SecondDivID = 'FilterSecondDivID_' + index;
-			var ListID = 'FilterDropdown_' + index;
-			var SelectID = 'selectFilterField_' + index;
-			var FilterFieldID = 'FilterFieldName_' + index;
+	  function clear_Prior_FilterChange_Dropdown_Lists(){
+		var SelectID = 'selectFilterChangeField_';
+		  
+		// Looping to look for html tags by specific element ID pattern.
+		for (var index = 0; ($('#' + SelectID + index).length > 0); index++){
+			var RowID = 'FilterChangeRowID_' + index;
+			var SecondDivID = 'FilterChangeSecondDivID_' + index;
+			var ListID = 'FilterChangeDropdown_' + index;
+			var SelectID = 'selectFilterChangeField_' + index;
+			var FilterFieldID = 'FilterChangeFieldName_' + index;
 
-			$("#" + SelectID).text("");				// Reset html tag and delete previous configuration.
-			removeElement(SelectID);				// Delete previous configuration.
+			$("#" + SelectID + index).text("");			// Reset html tag and delete previous configuration.
+			removeElement(SelectID + index);			// Delete previous configuration.
 			tableau.extensions.settings.erase(FilterFieldID)	// Delete Tableau extension key-pair settings
 			removeElement(ListID);
 			removeElement(SecondDivID);
