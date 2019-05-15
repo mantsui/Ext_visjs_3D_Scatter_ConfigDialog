@@ -442,9 +442,7 @@
 			var SecondDivID = 'MeasureSecondDivID_' + index;
 			var ListID = 'MeasureDropdown_' + index;
 			
-			if($('#' + SelectID + index).length > 0){
-				console.log('#' + SelectID + index + ' element exist');
-				
+			if($('#' + SelectID + index).length > 0){				
 				$("#" + SelectID + index).text("");	// Reset html tag and delete previous configuration.
 				removeElement(SelectID + index);	// Delete previous configuration.
 				removeElement(ListID);
@@ -454,7 +452,7 @@
 		}
 	  }
 
-	  function clear_Prior_Dimension_Dropdown(arrayFieldList){
+	  function clear_Prior_Dimension_Dropdown(){
 		var SelectID = 'selectField_';
 
 		// Looping to look for html tags by specific element ID pattern.
@@ -484,12 +482,13 @@
 			var SelectID = 'selectFilterChangeField_' + index;
 			var FilterFieldID = 'FilterChangeFieldName_' + index;
 
-			$("#" + SelectID + index).text("");			// Reset html tag and delete previous configuration.
-			removeElement(SelectID + index);			// Delete previous configuration.
-			tableau.extensions.settings.erase(FilterFieldID)	// Delete Tableau extension key-pair settings
-			removeElement(ListID);
-			removeElement(SecondDivID);
-			removeElement(RowID);
+			if($('#' + SelectID + index).length > 0){				
+				$("#" + SelectID + index).text("");			// Reset html tag and delete previous configuration.
+				removeElement(SelectID + index);			// Delete previous configuration.
+				removeElement(ListID);
+				removeElement(SecondDivID);
+				removeElement(RowID);
+			}
 		}		
 	  }
 
