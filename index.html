@@ -215,7 +215,6 @@
 	      // 04.29.19 Temp comment out
 	      clear_Prior_Measure_Dropdown();		// Clear prior dropdowns
 	      clear_Prior_Dimension_Dropdown();
-	      clear_Prior_FilterChange_Dropdown_Lists();
 
 	      worksheetColumns = [];	// Reset the array of field names
 	      measureColumns = [];	// Reset the array of field names
@@ -260,7 +259,7 @@
 		  
 	    // This now gets the summary data column names for our chosen data source.
 	    worksheet.getSummaryDataAsync({ maxRows: 1 }).then(function (sumdata) {
-	      //clear_Prior_Filter_Dropdown_Lists(filterSheetColumns); 	// Clear prior dropdowns
+	      clear_Prior_FilterChange_Dropdown_Lists(); 	// Clear prior dropdowns
 		    
 	      sumdata.columns.forEach(function (current_value) {
 		if(current_value.dataType == 'string' && current_value.fieldName != 'Measure Names') {
