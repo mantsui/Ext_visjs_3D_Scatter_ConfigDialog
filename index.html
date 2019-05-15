@@ -386,7 +386,6 @@
 	  }
 
 	  function create_FilterChange_Dropdown_Lists(arrayFieldList){
-		console.log('create_FilterChange_Dropdown_Lists arrayFieldList: ', arrayFieldList);
 
 		for (var index = 0; index < arrayFieldList.length; index++){
 			
@@ -482,9 +481,10 @@
 			var SelectID = 'selectFilterChangeField_' + index;
 			var FilterFieldID = 'FilterChangeFieldName_' + index;
 
-			if($('#' + SelectID + index).length > 0){				
-				$("#" + SelectID + index).text("");			// Reset html tag and delete previous configuration.
-				removeElement(SelectID + index);			// Delete previous configuration.
+			if($('#' + SelectID + index).length > 0){
+				console.log('Debug clear_Prior_FilterChange_Dropdown_Lists: ', ('#' + SelectID + index) );
+				$("#" + SelectID + index).text("");	// Reset html tag and delete previous configuration.
+				removeElement(SelectID + index);	// Delete previous configuration.
 				removeElement(ListID);
 				removeElement(SecondDivID);
 				removeElement(RowID);
