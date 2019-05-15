@@ -327,7 +327,7 @@
 	  function ClearSettings() {
 		var TempTableauSettings = tableau.extensions.settings.getAll();
 		for(var key in TempTableauSettings) {
-			tableau.extensions.settings.erase(TempTableauSettings[key])
+			tableau.extensions.settings.erase(key);
 		}
 	  }
 
