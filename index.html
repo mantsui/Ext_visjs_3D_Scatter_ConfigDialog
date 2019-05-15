@@ -276,6 +276,8 @@
 	  }
 
 	  function saveButton() {
+	    ClearSettings();
+
 	    // On clicking save, we save the following settings.
 	    tableau.extensions.settings.set('worksheet', $('#selectWorksheet').val());
 	    tableau.extensions.settings.set('MeasureName_0', $('#selectMeasureField_0').val());
@@ -320,6 +322,13 @@
 		}
 
 		window.alert( "Debug setting values: \n" + strOutput );
+	  }
+
+	  function ClearSettings() {
+		var TempTableauSettings = tableau.extensions.settings.getAll();
+		for(var key in TempTableauSettings) {
+			tableau.extensions.settings.erase(TempTableauSettings[key])
+		}
 	  }
 
 	  function addElement(parentId, elementTag, elementClass, elementId, html) {
@@ -453,7 +462,7 @@
 			
 			$("#" + SelectID + index).text("");	// Reset html tag and delete previous configuration.
 			removeElement(SelectID + index);	// Delete previous configuration.
-			tableau.extensions.settings.erase(FieldIndex)	// Delete Tableau extension key-pair settings
+			tableau.extensions.settings.erase(FieldIndex);	// Delete Tableau extension key-pair settings
 			removeElement(ListID);
 			removeElement(SecondDivID);
 			removeElement(RowID);
