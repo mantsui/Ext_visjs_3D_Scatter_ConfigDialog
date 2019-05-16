@@ -472,7 +472,8 @@
 
 	  function clear_Prior_FilterChange_Dropdown_Lists(){
 		var SelectID = 'selectFilterChangeField_';
-		  
+		console.log('clear_Prior_FilterChange_Dropdown_Lists running...');
+
 		// Looping to look for html tags by specific element ID pattern.
 		for (var index = 0; ($('#' + SelectID + index).length > 0); index++){
 			var RowID = 'FilterChangeRowID_' + index;
