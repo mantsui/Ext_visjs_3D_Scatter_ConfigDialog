@@ -306,8 +306,9 @@
 		  
 	    // This now gets the summary data column names for our chosen data source.
 	    worksheet.getSummaryDataAsync({ maxRows: 1 }).then(function (sumdata) {
-	      clear_Prior_Highlight_Dropdown_Lists(); 	// Clear prior dropdowns
-		    
+	      //clear_Prior_Highlight_Dropdown_Lists(); 	// Clear prior dropdowns
+	      //05.18.19 temp comment out
+
 	      sumdata.columns.forEach(function (current_value) {
 		if(current_value.dataType == 'string' && current_value.fieldName != 'Measure Names') {
 			highlightSheetColumns.push(current_value.fieldName);
@@ -445,6 +446,28 @@
 			addElement('selectFilterChangeContainer','div','row',RowID,'');
 			addElement(RowID,'div','col-md-6 col-xs-6',SecondDivID,'');
 			addElement(SecondDivID,'span','dropdown-label',ListID,'Optional: Filter Change Column #' + index);
+			addElement(ListID,'select','select',SelectID,'');
+			$('#' + SelectID).append('<option disabled selected="selected">-- None Selected --</option>');
+
+			arrayFieldList.forEach(function(currentValue){
+				$('#' + SelectID).append("<option value='" + currentValue + "'>" + currentValue + "</option>");
+			});
+		}		
+	  }
+
+	  function create_Highlight_Dropdown_Lists(arrayFieldList){
+
+		for (var index = 0; index < arrayFieldList.length; index++){
+			
+			var RowID = 'HighlightRowID_' + index;
+			var SecondDivID = 'HighlightSecondDivID_' + index;
+			var ListID = 'HighlightDropdown_' + index;
+			var SelectID = 'selectHighlightField_' + index;
+
+			//addElement(parentId, elementTag, elementClass, elementId, html)
+			addElement('selectHighlightContainer','div','row',RowID,'');
+			addElement(RowID,'div','col-md-6 col-xs-6',SecondDivID,'');
+			addElement(SecondDivID,'span','dropdown-label',ListID,'Optional: Highlight Column #' + index);
 			addElement(ListID,'select','select',SelectID,'');
 			$('#' + SelectID).append('<option disabled selected="selected">-- None Selected --</option>');
 
