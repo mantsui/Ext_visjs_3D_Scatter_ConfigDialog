@@ -168,6 +168,7 @@
 	  var measureColumns = [];
 	  var dimensionColumns = [];
 	  var filterChangeSheetColumns = [];
+	  var highlightSheetColumns = [];
 	  var PriorMeasureSelected = '';
 
 	  function buildDialog() {
@@ -208,6 +209,10 @@
 	      filterChangeColumnsUpdate();
 	    });
 
+	    $('#selectHighlightSheet').on('change', '', function (e) {
+	      applyHighlightColumnsUpdate();
+	    });
+		  
 	    $('#cancel').click(closeDialog);
 	    $('#save').click(saveButton);
 	  }
@@ -265,6 +270,7 @@
 	    });
 	  }
 
+	  // Create list of dimensions to listen for filter change.
 	  function filterChangeColumnsUpdate() {
 	    // This gets the worksheet object from the drop down.
 	    var worksheets = tableau.extensions.dashboardContent.dashboard.worksheets;
@@ -285,6 +291,30 @@
 	      });
 
 	      create_FilterChange_Dropdown_Lists(filterChangeSheetColumns);
+	    });
+	  }
+
+	  // Create list of dimensions to apply highlight action.
+	  function highlightColumnsUpdate() {
+	    // This gets the worksheet object from the drop down.
+	    var worksheets = tableau.extensions.dashboardContent.dashboard.worksheets;
+	    var worksheetName = $("#selectHighlightSheet").val();
+	    var worksheet = worksheets.find(function (sheet) {
+	      return sheet.name === worksheetName;
+	    });
+	    highlightSheetColumns = []; 	// Reset the array of field names
+		  
+	    // This now gets the summary data column names for our chosen data source.
+	    worksheet.getSummaryDataAsync({ maxRows: 1 }).then(function (sumdata) {
+	      clear_Prior_Highlight_Dropdown_Lists(); 	// Clear prior dropdowns
+		    
+	      sumdata.columns.forEach(function (current_value) {
+		if(current_value.dataType == 'string' && current_value.fieldName != 'Measure Names') {
+			highlightSheetColumns.push(current_value.fieldName);
+		}
+	      });
+
+	      create_Highlight_Dropdown_Lists(highlightSheetColumns);
 	    });
 	  }
 
