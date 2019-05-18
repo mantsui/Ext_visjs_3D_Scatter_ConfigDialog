@@ -64,9 +64,19 @@
         </div>
     </div>
 
-    <div id="selectFilterChangeContainer" class="container">
+    <div id="selectFilterChangeContainer" class="container"></div>
+
+    <div id="selectHighlightSheetDiv" class="row">
+        <div class="col-md-6 col-xs-6">
+             <span class="dropdown-label">Optional: Target Sheet to apply Highlight actions</span>
+                <select id="selectHighlightSheet" class="select">
+                    <option disabled selected="selected"> None Selected </option>
+                </select>
+        </div>
     </div>
 
+    <div id="selectHighlightContainer" class="container"></div>
+	
     <div class="row dialog-buttons">
         <span id="error"></span>
         <button id="save" class="btn btn-success">Save</button>
@@ -165,8 +175,15 @@
 	    // drop down list.
 	    let dashboard = tableau.extensions.dashboardContent.dashboard;
 	    dashboard.worksheets.forEach(function (worksheet) {
+
+	      // Create dropdown list of sheets, selected sheet will send data to vis.js for 3-D scatter plot chart generation.
 	      $("#selectWorksheet").append("<option value='" + worksheet.name + "'>" + worksheet.name + "</option>");
+
+	      // Create dropdown list of sheets, selected sheet will re-draw the 3-D scatter plot based on specified filter change event(s).	
 	      $("#selectFilterChangeSheet").append("<option value='" + worksheet.name + "'>" + worksheet.name + "</option>");
+
+	      // Create dropdown list of sheets, highlight actions will hit selected sheet based on specified dimension(s).
+	      $("#selectHighlightSheet").append("<option value='" + worksheet.name + "'>" + worksheet.name + "</option>");
 	    });
 		  
 	    // Disable Save Button until minimum form requirement is met
