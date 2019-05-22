@@ -306,7 +306,7 @@
 		  
 	    // This now gets the summary data column names for our chosen data source.
 	    worksheet.getSummaryDataAsync({ maxRows: 1 }).then(function (sumdata) {
-	      //clear_Prior_Highlight_Dropdown_Lists(); 	// Clear prior dropdowns
+	      clear_Prior_Highlight_Dropdown_Lists(); 	// Clear prior dropdowns
 	      //05.18.19 temp comment out
 
 	      sumdata.columns.forEach(function (current_value) {
@@ -553,6 +553,27 @@
 
 			if($('#' + SelectID + index).length > 0){
 				console.log('Debug clear_Prior_FilterChange_Dropdown_Lists: ', ('#' + SelectID + index) );
+				$("#" + SelectID + index).text("");	// Reset html tag and delete previous configuration.
+				removeElement(SelectID + index);	// Delete previous configuration.
+				removeElement(ListID);
+				removeElement(SecondDivID);
+				removeElement(RowID);
+			}
+		}		
+	  }
+
+	  function clear_Prior_Highlight_Dropdown_Lists(){
+		var SelectID = 'selectHighlightField_';
+
+		// Looping to look for html tags by specific element ID pattern.
+		for (var index = 0; ($('#' + SelectID + index).length > 0); index++){
+			var RowID = 'HighlightRowID_' + index;
+			var SecondDivID = 'HighlightSecondDivID_' + index;
+			var ListID = 'HighlightDropdown_' + index;
+			var FilterFieldID = 'HighlightFieldName_' + index;
+
+			if($('#' + SelectID + index).length > 0){
+				console.log('Debug clear_Prior_Highlight_Dropdown_Lists: ', ('#' + SelectID + index) );
 				$("#" + SelectID + index).text("");	// Reset html tag and delete previous configuration.
 				removeElement(SelectID + index);	// Delete previous configuration.
 				removeElement(ListID);
