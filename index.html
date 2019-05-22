@@ -353,6 +353,18 @@
 			tableau.extensions.settings.set(FilterChangeFieldID, $(SelectFilterChangeID).val());
 		}
 	    }
+
+	    if( $(selectHighlightSheet).val() != null ) {
+		    tableau.extensions.settings.set( "HighlightSheet", $(selectHighlightSheet).val() );
+	    }
+
+	    for (var index = 0; index < highlightSheetColumns.length; index++){
+		var SelectHighlightID = '#selectHighlightField_' + index;
+		var HighlightFieldID = 'HighlightFieldName_' + index;
+		if( $(SelectHighlightID).val() != null ) {
+			tableau.extensions.settings.set(HighlightFieldID, $(SelectHighlightID).val());
+		}
+	    }
 	    //DebugSaveSettings();
 
 	    tableau.extensions.settings.saveAsync().then((currentSettings) => {
